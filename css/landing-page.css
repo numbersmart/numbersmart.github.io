@@ -164,3 +164,14 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
+div.intracontent {
+    /* calls de margenes: top, right, bottom, left */
+    width: 80%;
+    padding: 25px;
+    border: 15px;
+    margin: 40px 30px 50px 20px;
+}
+strong { 
+     color: #365876; 
+    font-weight: bold;
+}
