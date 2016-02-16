@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Numbersmart is a business dedicated to providing internet-scraped datasets.
+    <meta name="description" content="Numbersmart is a business based in Monterrey, México, dedicated to providing internet-scraped datasets.
 ">
     <meta name="author" content="Numbersmart">
 
@@ -49,13 +49,7 @@
             <ul class="nav navbar-nav navbar-right">  
             	<li>
                     <a class="page-scroll" href="/intranet/#diccionarios-de-datos">Diccionarios</a>
-                </li>            
-                <li>
-                    <a class="page-scroll" href="/intranet/#calendarios-de-actualizaciones">Calendarios</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/intranet/#soportes">Soportes</a>
-                </li>
+                </li>         
                 <li>
                     <a class="page-scroll" href="/intranet/#casos">Casos</a>
                 </li>
@@ -81,13 +75,183 @@
   <li>Detección de oportunidades de compra o venta</li>
 </ul>
 
+<p>Identificador numbersmart: P1</p>
+
+<h3 id="variables">Variables</h3>
+
+<p>La base de datos de casas contiene las siguientes variables.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">HOMONIMO</th>
+      <th style="text-align: left">NOMBRE</th>
+      <th style="text-align: left">DESCRIPCION</th>
+      <th style="text-align: left">FORMAT</th>
+      <th style="text-align: left">EJEMPLO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ZONA</td>
+      <td style="text-align: left">Zona</td>
+      <td style="text-align: left">Zona, de acuerdo a las categorías del sitio web, dónde está úbicada.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">CARRETERA NACIONAL</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COLONIA</td>
+      <td style="text-align: left">Colonia</td>
+      <td style="text-align: left">Colonia, de acuerdo a las categorías del sitio web, dónde está úbicada.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">AHUEHUETES</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRECIO</td>
+      <td style="text-align: left">Precio</td>
+      <td style="text-align: left">Precio, en pesos (dólares se convierten).</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">5950000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INFO_COMPLETA</td>
+      <td style="text-align: left">Información completa</td>
+      <td style="text-align: left">Descripción completa igual a la encontrada en el sitio.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Casa nueva, totalmente terminada. Lista para estrenarse, en exclusivo Fraccionamiento, privada con vigilanca 24 / 7, parques interiores, zona arbolada, con andaderas, cochera doble,… etc</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PISOS</td>
+      <td style="text-align: left">Pisos de propiedad</td>
+      <td style="text-align: left">Pisos de la propiedad.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CONSTRUCCION</td>
+      <td style="text-align: left">Metros construcción</td>
+      <td style="text-align: left">Metros de construcción, obtenido de campos en el sitio y la descripción.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">380</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TERRENO</td>
+      <td style="text-align: left">Metros terreno</td>
+      <td style="text-align: left">Metros del terreno, obtenido de campos en el sitio y la descripción.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">200</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">WC</td>
+      <td style="text-align: left">Baños</td>
+      <td style="text-align: left">Baños de la propiedad</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RECAMARAS</td>
+      <td style="text-align: left">Recamaras</td>
+      <td style="text-align: left">Recamaras, según la descripción de la propiedad.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ID</td>
+      <td style="text-align: left">Identificador único</td>
+      <td style="text-align: left">Identificador único (se observa como “ClaveAviso” en el sitio)</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">817294112</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HORA</td>
+      <td style="text-align: left">Hora</td>
+      <td style="text-align: left">Fecha y hora de descarga de información.</td>
+      <td style="text-align: left">Datetime (yyyy-mm-dd hr:min:sec)</td>
+      <td style="text-align: left">2016-01-31 23:36:59</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FECHA</td>
+      <td style="text-align: left">Fecha</td>
+      <td style="text-align: left">Fecha de descarga de información.</td>
+      <td style="text-align: left">Date (yyyy-mm-dd)</td>
+      <td style="text-align: left">2016-01-31</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TERRAZA</td>
+      <td style="text-align: left">Terraza</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura tener terraza.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">VIGILANCIA</td>
+      <td style="text-align: left">Vigilancia</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura tener vigilancia.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">JUEGOS</td>
+      <td style="text-align: left">Juegos</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura tener cuarto o espacio de juegos.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PARQUE</td>
+      <td style="text-align: left">Parque</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura estar cerca de un parque.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ALBERCA</td>
+      <td style="text-align: left">Alberca</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura tener alberca.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ASADOR</td>
+      <td style="text-align: left">Asador</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura tener asador o espacio para uno.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NEGOCIABLE</td>
+      <td style="text-align: left">Negociable</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura ser un precio negociable.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="mtodo-de-recoleccin">Método de Recolección</h3>
 
-<p>Usando un algóritmo de escáneo en <em>R</em>, de manera diaria, se recolectó información de casas en venta en <strong>www.avisosdeocasion.com</strong>. Los paquetes utilizados y los scripts son propiedad exclusiva de <strong>numbersmart</strong>.</p>
+<p>Usando un algóritmo de escáneo en <em>R</em>, de manera diaria, se recolecta información de casas en venta en <strong>www.avisosdeocasion.com</strong>. Los paquetes utilizados y los scripts son propiedad exclusiva de <strong>numbersmart</strong>.</p>
 
-<h3 id="periodo-de-recoleccin">Periodo de Recolección</h3>
+<h3 id="periodo-y-frecuencia-de-recoleccin">Periodo y Frecuencia de Recolección</h3>
+<p>Desde diciembre 7 del 2015 y una vez al día todos los días, salvo contadas excepciones. El calendario de descargas se puede consultar a continuación.</p>
+
+<p><img src="/img/cals/p1_2015.png" alt="Casas 2015" />
+<img src="/img/cals/p1_2016.png" alt="Casas 2016" /></p>
+
+<p>La descarga se hace, aproximadamente a las 8:30 a.m, pero varía por día. Ningún dato es reemplazado, aún y cuando sea identico al recopilado previamente.</p>
 
 <h3 id="validacin-y-limpieza">Validación y limpieza</h3>
+<p>Los siguientes transformaciones o cambios se efectúan a la información descargada:</p>
+
+<ul>
+  <li>En las descripciones, se eliminan <em>trailing spaces</em> (uno o más espacios en blanco antes o después del fin del campo).</li>
+  <li>En casos dónde no existe la información, esta se rellena con “ND”.</li>
+  <li>Los precios marcados en dólares (“usd”) se convierten a pesos al tipo de cambio oficial más actual publicado por el INEGI (precio fix para cubrir obligaciones mensual).</li>
+  <li>La sigla de M2 (metros cuadrados) se elimina en el campo de metros (en terreno y construcción).</li>
+  <li>En el campo de “COLONIA”, se eliminan los acentos y se convierte todo a mayúsculas. Se elimina también el termino “…” (tres puntos suspensivos).</li>
+  <li>los campos que lo requieren se traducen a númericos (si todo lo escrito en el campo no es estrictamente un número, se guarda como nulo).</li>
+  <li>A partir de la descripción, se crean los siguientes campos binarios: TERRAZA, VIGILANCIA, JUEGOS, PARQUE, ALBERCA, ASADOR, NEGOCIABLE.</li>
+</ul>
 
 <h3 id="cobertura">Cobertura</h3>
 
@@ -98,70 +262,6 @@
 
 <h3 id="material-de-referencia">Material de Referencia</h3>
 
-<h3 id="variables">Variables</h3>
-
-<p>La base de datos de casas</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Variable</th>
-      <th style="text-align: right">Positiva</th>
-      <th style="text-align: right">Negativa</th>
-      <th style="text-align: right">Sin efecto</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Ingreso</td>
-      <td style="text-align: right">13</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Ingreso del hogar</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">0</td>
-      <td style="text-align: right">0</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Bienes netos</td>
-      <td style="text-align: right">9</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">2</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Precio</td>
-      <td style="text-align: right">0</td>
-      <td style="text-align: right">2</td>
-      <td style="text-align: right">0</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Inflación</td>
-      <td style="text-align: right">2</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Precios esperados</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">0</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Seguridad social</td>
-      <td style="text-align: right">2</td>
-      <td style="text-align: right">3</td>
-      <td style="text-align: right">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Edad</td>
-      <td style="text-align: right">3</td>
-      <td style="text-align: right">4</td>
-      <td style="text-align: right">6</td>
-    </tr>
-  </tbody>
-</table>
 
  </div>
 </div>

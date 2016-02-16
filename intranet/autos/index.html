@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Numbersmart is a business based in Monterrey, México, dedicated to providing internet-scraped datasets.
+">
+    <meta name="author" content="Numbersmart">
+
+    <title>Intranet - Numbersmart</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+	<body>
+	  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/#home">Numbersmart</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">  
+            	<li>
+                    <a class="page-scroll" href="/intranet/#diccionarios-de-datos">Diccionarios</a>
+                </li>         
+                <li>
+                    <a class="page-scroll" href="/intranet/#casos">Casos</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+	 
+<div class="container">
+ <div class = "intracontent">
+ <h2 id="venta-de-autos-en-monterrey-nl">Venta de Autos en Monterrey, N.L.</h2>
+
+<p><strong>Data set</strong> diseñado para el mercado secundario de autos. Entre sus posibles aplicaciones están:</p>
+
+<ul>
+  <li>Medición del mercado (por zona, tipo de marca, características)</li>
+  <li>Modelos de depreciación en el tiempo</li>
+  <li>Modelos de precios hedónicos</li>
+  <li>Estudio de drivers en el mercado</li>
+  <li>Estudio o detección de fraudes</li>
+  <li>Detección de oportunidades de compra o venta</li>
+</ul>
+
+<p>Identificador numbersmart: P3</p>
+
+<h3 id="variables">Variables</h3>
+
+<p>La base de datos contiene las siguientes variables.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">HOMONIMO</th>
+      <th style="text-align: left">NOMBRE</th>
+      <th style="text-align: left">DESCRIPCION</th>
+      <th style="text-align: left">FORMAT</th>
+      <th style="text-align: left">EJEMPLO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">DESC_CORTA</td>
+      <td style="text-align: left">Descripción corta</td>
+      <td style="text-align: left">Descripción corta del automóvil (título de entrada en el sitio).</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Toyota RAV4 5p Limited L4/2.5 Aut</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRECIO</td>
+      <td style="text-align: left">Precio</td>
+      <td style="text-align: left">Precio en pesos (dólares se convierten).</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">275000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">YEAR</td>
+      <td style="text-align: left">Año</td>
+      <td style="text-align: left">Año de modelo de automóvil.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">2014</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">KMS</td>
+      <td style="text-align: left">Kilometros</td>
+      <td style="text-align: left">Kilometros de automóvil.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">19600</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UBICACION_1</td>
+      <td style="text-align: left">Ubicación uno</td>
+      <td style="text-align: left">Ubicación de vendedor más “alta”. Generalmente estado.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Nuevo León</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UBICACION_2</td>
+      <td style="text-align: left">Ubicación dos</td>
+      <td style="text-align: left">Ubicación de vendedor. Generalmente municipio.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">San Pedro Garza García</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UBICACION_3</td>
+      <td style="text-align: left">Ubicación tres</td>
+      <td style="text-align: left">Ubicación de vendedor más desagregada. Generalmente colonia.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Barranca Del Pedregal</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COLOR</td>
+      <td style="text-align: left">Color</td>
+      <td style="text-align: left">Color de automóvil.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Negro</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GASOLINA</td>
+      <td style="text-align: left">Gasolina</td>
+      <td style="text-align: left">Tipo de gasolina que usa el automóvil.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Premium</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DIRECCION</td>
+      <td style="text-align: left">Tipo de dirección de auto</td>
+      <td style="text-align: left">Tipo de dirección que tiene automóvil.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Asistida</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PUERTAS</td>
+      <td style="text-align: left">Puertas</td>
+      <td style="text-align: left">Número de puertas.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">KMS_D</td>
+      <td style="text-align: left">Kilometros parametrizados</td>
+      <td style="text-align: left">Kilometros de automóvil, extraído de variables parametrizadas del sitio. Este dato coincide en casi todas las ocasiones el de KMS. Sin embargo, si hay diferencias, debe tener prioridad este.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">19600</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MARCA</td>
+      <td style="text-align: left">Marca de auto</td>
+      <td style="text-align: left">Marca de automóvil, generalmente homologada con opciones de sitio web.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Toyota</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MODELO</td>
+      <td style="text-align: left">Modelo de auto</td>
+      <td style="text-align: left">Modelo de automóvil, generalmente homologada con opciones de sitio web.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">RAV4</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DUENO</td>
+      <td style="text-align: left">Solo dueño</td>
+      <td style="text-align: left">Permite ver si el auto tuvo un solo dueño. Si el dato no es proporcionado, se obtiene un “ND”.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Sí</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TENENCIA</td>
+      <td style="text-align: left">Tenencia</td>
+      <td style="text-align: left">Si tiene tenencia pagada, se observa un “si”.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Sí</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TRANSMISION</td>
+      <td style="text-align: left">Transmisión</td>
+      <td style="text-align: left">Tipo de transmisión. Es una homologación de columna TRANSMISION_DESC.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Automática</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">VERSION</td>
+      <td style="text-align: left">Versión</td>
+      <td style="text-align: left">Versión de auto.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">5p Limited L4/2.5 Aut</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Y_D</td>
+      <td style="text-align: left">Año parametrizado</td>
+      <td style="text-align: left">Año de automóvil, extraído de variables parametrizadas del sitio. Este dato coincide en casi todas las ocasiones el de YEAR. Sin embargo, si hay diferencias, debe tener prioridad este.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">2014</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">VERIFICACION</td>
+      <td style="text-align: left">Verificación</td>
+      <td style="text-align: left">Si tiene verificación pagada, se observa un “si”.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Sí</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DESCRIPCION_LARGA</td>
+      <td style="text-align: left">Descripción larga</td>
+      <td style="text-align: left">Descripción más larga del sitio. Incluye generalmente todo lo que teclea el usuario.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Toyota Rav4 Seminueva Preciosa. La camioneta se encuentra en excelentes condiciones, interiores en piel bitono, camara de reversa, cajuela automatica, totalmente electrica, volante multifucniones, aire acondicionado, boton de encendido, realmente seminueva y muy equipada, todo pagado, nunca chocada, carnet de servicios en agencia toyota, 3 modos de manejo. Podria tomar algo a cuenta. Ofertas serias</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CADENA_DESCRIPTORES</td>
+      <td style="text-align: left">Cadena de descriptores</td>
+      <td style="text-align: left">Los descriptores que están parametrizaos en el sitio se unen en esta columna y se separan por “_|.|_” para fácil extracción.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">CD_|.|_Entrada auxiliar_|.|_MP3_|.|_Aire acondicionado_|.|_Computadora de viaje_|.|_Seguros eléctricos_|.|_ABS_|.|_Bolsa de aire (Piloto)_|.|_Bolsa de aire (Copiloto)_|.|_Bolsa de aire laterales_|.|_Alarma</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DESCRIPTORES</td>
+      <td style="text-align: left">Número de descriptores</td>
+      <td style="text-align: left">Número de características en la cadena de descriptores.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">11</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ID</td>
+      <td style="text-align: left">Identificador único</td>
+      <td style="text-align: left">Identificador único del sitio, se extrae de campo de id.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">537579114</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FECHA</td>
+      <td style="text-align: left">Fecha</td>
+      <td style="text-align: left">Fecha de descarga de información</td>
+      <td style="text-align: left">Date (yyyy-mm-dd)</td>
+      <td style="text-align: left">2016-01-31</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HORA</td>
+      <td style="text-align: left">Hora</td>
+      <td style="text-align: left">Fecha y hora de descarga de información</td>
+      <td style="text-align: left">Datetime (yyyy-mm-dd hr:min:sec)</td>
+      <td style="text-align: left">2016-01-31 23:36:59</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">WEBSITE</td>
+      <td style="text-align: left">Liga directa</td>
+      <td style="text-align: left">Liga directa al automóvil.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">http://auto.mercadolibre.com.mx/MLM-537579114-rav4-2014-limited-_JM</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DESC_CORTA_2</td>
+      <td style="text-align: left">Segunda descripción corta</td>
+      <td style="text-align: left">El sitio tiene una sección adicional, espejo del titulo dónde se extrae la descripción. Debe variar poco contra DESC_CORTA.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">TOYOTA RAV4 5P LIMITED L4/2.5 AUT</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UBICACION_1_2</td>
+      <td style="text-align: left">Ubicación uno</td>
+      <td style="text-align: left">Ubicación de vendedor más “alta”. Generalmente estado. Es la homologación de columna UBICACION_1</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">NUEVO LEON</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UBICACION_2_2</td>
+      <td style="text-align: left">Ubicación dos</td>
+      <td style="text-align: left">Ubicación de vendedor. Generalmente municipio. Es la homologación de columna UBICACION_2</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">SAN PEDRO GARZA GARCIA</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UBICACION_3_2</td>
+      <td style="text-align: left">Ubicación tres</td>
+      <td style="text-align: left">Ubicación de vendedor más desagregada. Generalmente colonia. Es la homologación de columna UBICACION_3</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">BARRANCA DEL PEDREGAL</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FINDESEMANA</td>
+      <td style="text-align: left">Fin de semana de extracción</td>
+      <td style="text-align: left">Verdadero si la extracción se hizo en un fin de semana. Obtenido a través de la fecha.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DESCRITOR_D_EXC</td>
+      <td style="text-align: left">Descripción excelente</td>
+      <td style="text-align: left">Verdadero si la descripción tiene la palabra “excelente”.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DESCRIPTOR_D_ESTAND</td>
+      <td style="text-align: left">Descripción estándar</td>
+      <td style="text-align: left">Verdadero si la descripción tiene la palabra “estándar”, “estandar” o “standard”. Sirve para rellenar o mejorar campo de TRANSMISION si está en blanco porque no fue parametrizado.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TRANSMISION_DESC</td>
+      <td style="text-align: left">Descripción de Transmisión</td>
+      <td style="text-align: left">Tipo de transmisión sin homologar.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Automática</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">KMSXYEAR</td>
+      <td style="text-align: left">Kilometros por año</td>
+      <td style="text-align: left">División de kilometros entre años transcurridos desde modelo de auto hasta día de extracción.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">9800</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mtodo-de-recoleccin">Método de Recolección</h3>
+
+<p>Usando un algóritmo de escáneo en <em>R</em>, de manera diaria, se recolecta información de autos en venta en <strong>www.mercadolibre.com.mx</strong>. Los paquetes utilizados y los scripts son propiedad exclusiva de <strong>numbersmart</strong>.</p>
+
+<h3 id="periodo-y-frecuencia-de-recoleccin">Periodo y Frecuencia de Recolección</h3>
+<p>Desde 31 de enero del 2016 y una vez al día todos los días, salvo contadas excepciones. El calendario de descargas se puede consultar a continuación.</p>
+
+<p><img src="/img/cals/p3_2016.png" alt="Autos 2016" /></p>
+
+<p>La descarga se hace, aproximadamente a las 8:30 a.m, pero varía por día. Ningún dato es reemplazado, aún y cuando sea identico al recopilado previamente.</p>
+
+<h3 id="validacin-y-limpieza">Validación y limpieza</h3>
+<p>Los siguientes transformaciones o cambios se efectúan a la información descargada:</p>
+
+<ul>
+  <li>En las descripciones y campos númericos, se eliminan <em>trailing spaces</em> (uno o más espacios en blanco antes o después del fin del campo).</li>
+  <li>Se eliminan saltos de página y texto.</li>
+  <li>En casos dónde no existe la información, esta se rellena con “ND”.</li>
+  <li>Los precios marcados en dólares (“usd”) se convierten a pesos al tipo de cambio oficial más actual publicado por el INEGI (precio fix para cubrir obligaciones mensual).</li>
+  <li>En los campos de DESC_CORTA, UBICACION_1, UBICACION_2 y UBICACION_3 se eliminan los acentos y se convierte todo a mayúsculas. Se elimina también el termino “…” (tres puntos suspensivos).</li>
+  <li>los campos que lo requieren se traducen a númericos (si todo lo escrito en el campo no es estrictamente un número, se guarda como nulo).</li>
+</ul>
+
+<h3 id="cobertura">Cobertura</h3>
+
+<p>La cobertura es el estado de Nuevo León, salvo algunos (pocos) casos de anuncios fuera de la entidad mal clasificados. La tasa de error de recolección es de aproximadamente 0.003% (por cada mil anuncios, 3 no se recopilan por problemas de conectividad o del sitio web).</p>
+
+<h3 id="financiamiento-y-conflictos-de-inters">Financiamiento y conflictos de interés</h3>
+<p>No existen conflictos de interés en la recolección de la información. El financiamiento fue hecho en su totalidad por <strong>numbersmart</strong>.</p>
+
+<h3 id="material-de-referencia">Material de Referencia</h3>
+
+
+ </div>
+</div>
+ <!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
+
+<!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/landing-page.js"></script>
+
+	</body>
+
+</html>

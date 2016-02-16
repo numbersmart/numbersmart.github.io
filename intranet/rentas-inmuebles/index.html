@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Numbersmart is a business dedicated to providing internet-scraped datasets.
+    <meta name="description" content="Numbersmart is a business based in Monterrey, México, dedicated to providing internet-scraped datasets.
 ">
     <meta name="author" content="Numbersmart">
 
-    <title>High-Value Data Sets</title>
+    <title>Intranet - Numbersmart</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -49,13 +49,7 @@
             <ul class="nav navbar-nav navbar-right">  
             	<li>
                     <a class="page-scroll" href="/intranet/#diccionarios-de-datos">Diccionarios</a>
-                </li>            
-                <li>
-                    <a class="page-scroll" href="/intranet/#calendarios-de-actualizaciones">Calendarios</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/intranet/#soportes">Soportes</a>
-                </li>
+                </li>         
                 <li>
                     <a class="page-scroll" href="/intranet/#casos">Casos</a>
                 </li>
@@ -69,11 +63,7 @@
 	 
 <div class="container">
  <div class = "intracontent">
- <h2 id="mercado-inmobiliario">Mercado Inmobiliario</h2>
-
-<ul>
-  <li><a href="blabla.com/ppt.ppt">Ver prospecto (ppt)</a></li>
-</ul>
+ <h2 id="renta-de-inmuebles-en-monterrey-nl">Renta de Inmuebles en Monterrey, N.L.</h2>
 
 <p><strong>Data set</strong> diseñado para el mercado inmobiliario. Entre sus posibles aplicaciones están:</p>
 
@@ -85,92 +75,260 @@
   <li>Detección de oportunidades de compra o venta</li>
 </ul>
 
-<h3 id="mtodo-de-recoleccin">Método de Recolección</h3>
-
-<p>Usando un algóritmo de escáneo en <em>R</em>, de manera diaria, se recolectó información de casas en venta en www.avisosdeocasion.com y propiedades en renta de www.inmuebles24.com.</p>
-
-<p>Los paquetes utilizados son, primordialmente:</p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>rvest<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>xml2<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>stringr<span class="p">)</span></code></pre></div>
-
-<h3 id="periodo-de-recoleccin">Periodo de Recolección</h3>
-
-<h3 id="validacin-y-limpieza">Validación y limpieza</h3>
-
-<h3 id="cobertura">Cobertura</h3>
-
-<h3 id="financiamiento-y-conflictos-de-inters">Financiamiento y conflictos de interés</h3>
-<p>No existen conflictos de interés en la recolección de la información. El financiamiento fue hecho en su totalidad por Eduardo Flores (eduardo@enelmargen.org).</p>
-
-<h3 id="material-de-referencia">Material de Referencia</h3>
+<p>Identificador numbersmart: P2</p>
 
 <h3 id="variables">Variables</h3>
 
-<p>La base de datos de casas</p>
+<p>La base de datos contiene las siguientes variables.</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Variable</th>
-      <th style="text-align: right">Positiva</th>
-      <th style="text-align: right">Negativa</th>
-      <th style="text-align: right">Sin efecto</th>
+      <th style="text-align: left">HOMONIMO</th>
+      <th style="text-align: left">NOMBRE</th>
+      <th style="text-align: left">DESCRIPCION</th>
+      <th style="text-align: left">FORMAT</th>
+      <th style="text-align: left">EJEMPLO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Ingreso</td>
-      <td style="text-align: right">13</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">1</td>
+      <td style="text-align: left">TITULO</td>
+      <td style="text-align: left">Titulo</td>
+      <td style="text-align: left">Titulo en sitio web de la propiedad</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Departamento en Renta en San Pedro Garza García</td>
     </tr>
     <tr>
-      <td style="text-align: left">Ingreso del hogar</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">0</td>
-      <td style="text-align: right">0</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Bienes netos</td>
-      <td style="text-align: right">9</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">2</td>
-    </tr>
-    <tr>
+      <td style="text-align: left">PRECIO</td>
       <td style="text-align: left">Precio</td>
-      <td style="text-align: right">0</td>
-      <td style="text-align: right">2</td>
-      <td style="text-align: right">0</td>
+      <td style="text-align: left">Precio, en pesos (dólares se convierten). Precio puede ser muy bajo (menor a 10 pesos) si se trata de una propuesta a negociar.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">12584</td>
     </tr>
     <tr>
-      <td style="text-align: left">Inflación</td>
-      <td style="text-align: right">2</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">1</td>
+      <td style="text-align: left">DESCRIPCION</td>
+      <td style="text-align: left">Descripción</td>
+      <td style="text-align: left">Descripción completa igual a la encontrada en el sitio.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Torre departamental de lujo con vistas privilegiadas, cuenta con alberca, asadores, gym, salon de evntos, centro de negocios. El depa se te entrega equipado y todos los servicios están incluidos, agua, luz, gas, internet, teléfono y tv por cable, así como el mantenimiento…. etc</td>
     </tr>
     <tr>
-      <td style="text-align: left">Precios esperados</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">0</td>
+      <td style="text-align: left">DESCRIPCIONES_JUNTAS</td>
+      <td style="text-align: left">Variables de Descripciones</td>
+      <td style="text-align: left">El sitio cuenta con una sección de una serie de descripciones predefinidas. Esta columna agrupa todas estas descripciones y las separa por el delimitador: “_|.|_” para fácil extracción.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Superficie de terreno: 76m²_|.|_Recámaras: 1_|.|_Baños: 1_|.|_Estacionamientos: 1</td>
     </tr>
     <tr>
-      <td style="text-align: left">Seguridad social</td>
-      <td style="text-align: right">2</td>
-      <td style="text-align: right">3</td>
-      <td style="text-align: right">1</td>
+      <td style="text-align: left">RECAMARAS</td>
+      <td style="text-align: left">Recamaras</td>
+      <td style="text-align: left">Número de recamaras</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">1</td>
     </tr>
     <tr>
-      <td style="text-align: left">Edad</td>
-      <td style="text-align: right">3</td>
-      <td style="text-align: right">4</td>
-      <td style="text-align: right">6</td>
+      <td style="text-align: left">WC</td>
+      <td style="text-align: left">Baños</td>
+      <td style="text-align: left">Número de baños</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TERRENO</td>
+      <td style="text-align: left">Metros terreno</td>
+      <td style="text-align: left">Metros del terreno, obtenido de campos en el sitio y la descripción.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">76</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CONSTRUCCION</td>
+      <td style="text-align: left">Metros construcción</td>
+      <td style="text-align: left">Metros del construccion, obconido de campos tr el sitio y la descripción.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">76</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ESTACIONAMIENTO</td>
+      <td style="text-align: left">Cajones de Estacionamientos</td>
+      <td style="text-align: left">Obtenido de descripción. Puede contener inconsistencias, por ejemplo que sea la suma de todos los cajones en el edificio.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ID</td>
+      <td style="text-align: left">Identificador único</td>
+      <td style="text-align: left">Identificador único (se observa como identificador de propiedad en sitio).</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">CR154490001</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DESCRIPTORES</td>
+      <td style="text-align: left">Ruta de descripción</td>
+      <td style="text-align: left">La ruta del sitio bajo la cual está organizado el inmueble. Generalmente es tipo &gt; renta &gt; estado &gt; municipio &gt; colonia. Se divide por el delimitador “_|.|_”.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">inmuebles24_|.|_departamento_|.|_renta_|.|_nuevo león_|.|_san pedro garza garcía_|.|_vista real</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LINK</td>
+      <td style="text-align: left">Liga directa</td>
+      <td style="text-align: left">Liga directa a la propiedad.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">http://www.inmuebles24.com/propiedades/departamento-en-renta-en-san-pedro-garza-garcia-107462.html</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HORA</td>
+      <td style="text-align: left">Hora</td>
+      <td style="text-align: left">Fecha y hora de descarga de información.</td>
+      <td style="text-align: left">Datetime (yyyy-mm-dd hr:min:sec)</td>
+      <td style="text-align: left">2016-01-31 23:36:59</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FECHA</td>
+      <td style="text-align: left">Fecha</td>
+      <td style="text-align: left">Fecha de descarga de información.</td>
+      <td style="text-align: left">Date (yyyy-mm-dd)</td>
+      <td style="text-align: left">2016-01-31</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">N_DESCRIPTORES</td>
+      <td style="text-align: left">Número de descriptores</td>
+      <td style="text-align: left">Número de clasificaciones de ruta (generalmente, 6).</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">6</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TIPO_INMUEBLE</td>
+      <td style="text-align: left">Tipo de inmueble</td>
+      <td style="text-align: left">Tipo de inmueble (Departamento, Casa, Oficina, etc).</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">DEPARTAMENTO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ESTADO</td>
+      <td style="text-align: left">Estado</td>
+      <td style="text-align: left">Estado de inmueble, obtenido de descriptores.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">NUEVO LEON</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MUNICIPIO</td>
+      <td style="text-align: left">Municipio</td>
+      <td style="text-align: left">Municipio de inmueble, obtenido de descriptores.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">SAN PEDRO GARZA GARCIA</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ZONA</td>
+      <td style="text-align: left">Zona</td>
+      <td style="text-align: left">Zona, de acuerdo a las categorías del sitio web, dónde está úbicado.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">DEL VALLE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TERRAZA</td>
+      <td style="text-align: left">Terraza</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura tener terraza.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">VIGILANCIA</td>
+      <td style="text-align: left">Vigilancia</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura tener vigilancia.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">JUEGOS</td>
+      <td style="text-align: left">Juegos</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura tener cuarto o espacio de juegos.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PARQUE</td>
+      <td style="text-align: left">Parque</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura estar cerca de un parque.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ALBERCA</td>
+      <td style="text-align: left">Alberca</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura tener alberca.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ASADOR</td>
+      <td style="text-align: left">Asador</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura tener asador o espacio para uno.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NEGOCIABLE</td>
+      <td style="text-align: left">Negociable</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura ser un precio negociable.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ACOMUN</td>
+      <td style="text-align: left">Area Común</td>
+      <td style="text-align: left">Verdadero si la descripción de la propiedad asegura tener área común (generalmente departamentos).</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DESC_EXCEL</td>
+      <td style="text-align: left">Excelente en descripción</td>
+      <td style="text-align: left">Verdadero si la descripción tiene la palabra “excelente”</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DESC_EXCLU</td>
+      <td style="text-align: left">Exclusivo en descripción</td>
+      <td style="text-align: left">Verdadero si la descripción tiene la palabra “exclusivo”</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
     </tr>
   </tbody>
 </table>
+
+<h3 id="mtodo-de-recoleccin">Método de Recolección</h3>
+
+<p>Usando un algóritmo de escáneo en <em>R</em>, de manera diaria, se recolecta información de propiedades en renta en <strong>www.inmuebles24.com</strong>. Los paquetes utilizados y los scripts son propiedad exclusiva de <strong>numbersmart</strong>.</p>
+
+<h3 id="periodo-y-frecuencia-de-recoleccin">Periodo y Frecuencia de Recolección</h3>
+<p>Desde el 17 de enero del 2016 y una vez al día todos los días, salvo contadas excepciones. El calendario de descargas se puede consultar a continuación.</p>
+
+<p><img src="/img/cals/p2_2016.png" alt="Renta 2016" /></p>
+
+<p>La descarga se hace, aproximadamente a las 8:30 a.m, pero varía por día. Ningún dato es reemplazado, aún y cuando sea identico al recopilado previamente.</p>
+
+<h3 id="validacin-y-limpieza">Validación y limpieza</h3>
+<p>Los siguientes transformaciones o cambios se efectúan a la información descargada:</p>
+
+<ul>
+  <li>En las descripciones y campos númericos se eliminan <em>trailing spaces</em> (uno o más espacios en blanco antes o después del fin del campo).</li>
+  <li>En casos dónde no existe la información, esta se rellena con “ND”.</li>
+  <li>Los precios marcados en dólares (“usd”) se convierten a pesos al tipo de cambio oficial más actual publicado por el INEGI (precio fix para cubrir obligaciones mensual).</li>
+  <li>En los campos de TIPO_INMUEBLE, ESTADO, MUNICIPIO y ZONA, se eliminan los acentos y se convierte todo a mayúsculas. Se elimina también el termino “…” (tres puntos suspensivos).</li>
+  <li>los campos que lo requieren se traducen a númericos (si todo lo escrito en el campo no es estrictamente un número, se guarda como nulo).</li>
+</ul>
+
+<h3 id="cobertura">Cobertura</h3>
+
+<p>La cobertura es el estado de Nuevo León, salvo algunos (pocos) casos de propiedades fuera de la entidad que están mal clasificadas de origen. La tasa de error de recolección es de aproximadamente 0.002% (por cada mil anuncios, 2 no se recopilan por problemas de conectividad o del sitio web).</p>
+
+<h3 id="financiamiento-y-conflictos-de-inters">Financiamiento y conflictos de interés</h3>
+<p>No existen conflictos de interés en la recolección de la información. El financiamiento fue hecho en su totalidad por <strong>numbersmart</strong>.</p>
+
+<h3 id="material-de-referencia">Material de Referencia</h3>
+
 
  </div>
 </div>
