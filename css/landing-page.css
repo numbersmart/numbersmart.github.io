@@ -279,3 +279,7 @@ table tr:hover td {
 }
 
 /* end pretty table */
+warn {
+    background-color: lightblue;
+    padding: 50px solid navy;
+}

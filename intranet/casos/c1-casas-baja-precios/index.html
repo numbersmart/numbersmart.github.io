@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Numbersmart is a business based in Monterrey, México, dedicated to providing internet-scraped datasets.
+">
+    <meta name="author" content="Numbersmart">
+
+    <title>Caso Numbersmart - Caída en Precios de Casas</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+	<body>
+	  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/#home">Numbersmart</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">  
+            	<li>
+                    <a class="page-scroll" href="/intranet/#diccionarios-de-datos">Diccionarios</a>
+                </li>         
+                <li>
+                    <a class="page-scroll" href="/intranet/#casos">Casos</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+	 
+<div class="container">
+ <div class = "intracontent">
+ <p><small>
+Los casos de <em>Numbersmart</em> son pequeños documentos hechos para demostrar la utilidad de la información que vendemos. En la mayoría de los casos se trata de un problema que ya se ha resuelto con un cliente, pero mantenemos al cliente en la confidencialidad y alteramos sustancialmente la información. <strong>Los datos no son reales, pero lo que se puede obtener de ellos es muy parecido en los verdaderos</strong>.
+</small></p>
+
+<hr />
+
+<h1 id="caso-de-negocio">Caso de Negocio</h1>
+
+<h2 id="preguntas-a-responder">Pregunta(s) a responder:</h2>
+
+<ul>
+  <li>¿Cuál es el mejor momento para ofrecer un precio negociable a un postor de venta?</li>
+</ul>
+
+<h2 id="bases-usadas">Bases usadas:</h2>
+
+<ul>
+  <li><a href="/intranet/p1-ventas-casas/index.html">Venta de Casas en Monterrey (P1)</a></li>
+</ul>
+
+<hr />
+
+<h2 id="overview">Overview</h2>
+
+<p>Para responder a la pregunta, es importante saber varias cosas: si cambia el precio o algún indicador (por ejemplo, se agrega el termino “negociable”) después de una cantidad de tiempo en la que no se haya vendido la propiedad, en que magnitud y en cuánto tiempo.</p>
+
+<p>Muchos factores entran en juego a la hora de decidir el precio de una casa y uno de ellos es sin duda la urgencia del vendedor por obtener dinero liquido. Es muy difícil preguntar directamente al vendedor esto, pero podemos intuirlo a partir de la información recopilada de manera diaria.</p>
+
+<p>Si observamos que en ciertas zonas o con casas que tienen características únicas, el precio o los terminos de negociación cambian más frecuentemente, podemos entonces intuir cuando es el mejor momento de comprar la propiedad. La hipótesis es que tal vez algunas propiedades pueden negociarse a la baja si tan solo nos esperamos un par de días o meses. Encontrar este último dato es útil y se puede hacer a partir de los datos.</p>
+
+<h2 id="metodologa">Metodología</h2>
+
+<p>Primero, vamos a organizar y explorar la información de una manera descriptiva. Aquí nos interesa saber como se compone y que tipo de conclusiones podemos hacer.</p>
+
+<p>Después, usaremos las columnas más importantes para tratar de obtener <em>insights</em> de los datos. Esto significa, encontrar patrones que nos ayuden a tomar decisiones. Haremos esto mediante la técnica de árboles de decisión porque es fácil de entender y poderosa para casos dónde tenemos muchos casos y categorias. Se puede leer más de la técnica <a href="https://en.wikipedia.org/wiki/Decision_tree">aquí</a>.</p>
+
+<p>Finalmente, del árbol que creamos, podemos intuir útiles reglas de negocio para responder la pregunta inicial.</p>
+
+<h2 id="datos">Datos</h2>
+
+<p>Histograma de días en publicación id
+g_hist1</p>
+
+<p>Obtenemos que de un total de 6,239 propiedades únicas publicadas en el periodo, 714 (un 11.4% del total) tienen un cambio de precio o condiciones relevante para nuestro estudio. Esto significa que a la misma propiedad se le agrega en la descripción la leyenda de “NEGOCIABLE” o se baja el precio. Es importante notar que la suma no es igual porque la propiedad puede contener ambas, es decir, baja el precio y además incluye la condición negociable.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Propiedades totales</td>
+      <td>6239</td>
+    </tr>
+    <tr>
+      <td>Propiedades con cambios de condiciones</td>
+      <td>714</td>
+    </tr>
+    <tr>
+      <td>Propiedades con cambio en negocación</td>
+      <td>121</td>
+    </tr>
+    <tr>
+      <td>Propiedades con cambio de precio</td>
+      <td>671</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>La mayoría de las propiedades duran listadas 41 días, como se observa en el histograma siguiente.</p>
+
+<h2 id="resultados">Resultados</h2>
+
+<p>hist(randomize_data(day$Dias))
+day &lt;- p1 %&gt;% group_by(ID) %&gt;% summarise(“Dias” = n_distinct(FECHA))
+cambiaron &lt;- p1 %&gt;% inner_join(., p1 %&gt;% group_by(ID) %&gt;% summarise(“neg” = n_distinct(NEGOCIABLE)) %&gt;% filter(neg&gt;1), by = “ID”)</p>
+
+<h2 id="respuesta">Respuesta</h2>
+
+ </div>
+</div>
+ <!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
+
+<!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/landing-page.js"></script>
+
+	</body>
+
+</html>
