@@ -130,6 +130,18 @@ Los casos de <em>Numbersmart</em> son pequeños documentos hechos para demostrar
 
 <p><img src="/img/casos/caso_1_g1.png" alt="Histograma ejemplo de casas" /></p>
 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># código requiere de paquete y datos propiedad de Numbersmart</span>
+pordias <span class="o">&lt;-</span> datos_casas <span class="o">%&gt;%</span> 
+  group_by<span class="p">(</span>ID<span class="p">)</span> <span class="o">%&gt;%</span> 
+  summarise<span class="p">(</span><span class="s">&quot;Dias&quot;</span> <span class="o">=</span> n_distinct<span class="p">(</span>FECHA<span class="p">))</span>
+
+ggplot<span class="p">(</span><span class="kt">data.frame</span><span class="p">(</span><span class="s">&quot;x&quot;</span> <span class="o">=</span> randomize_data<span class="p">(</span>pordias<span class="o">$</span>Dias<span class="p">)),</span> 
+       aes<span class="p">(</span>x <span class="o">=</span> x<span class="p">))</span> <span class="o">+</span> 
+    geom_histogram<span class="p">(</span>
+      fill <span class="o">=</span> ns_colors<span class="p">[</span><span class="m">1</span><span class="p">],</span> colour <span class="o">=</span> <span class="s">&quot;white&quot;</span><span class="p">)</span> <span class="o">+</span> 
+    theme_ns<span class="p">()</span> <span class="o">+</span> 
+    labs<span class="p">(</span>x <span class="o">=</span> <span class="s">&quot;Días&quot;</span><span class="p">,</span> y <span class="o">=</span> <span class="s">&quot;Casas&quot;</span><span class="p">)</span></code></pre></div>
+
 <p>Sin embargo, si tomamos aquellas que han cambiado sus condiciones, observamos que tienden a durar un poco más en el mercado.</p>
 
 <p><img src="/img/casos/caso_1_g2.png" alt="Histograma ejemplo de casas que cambiaron" /></p>

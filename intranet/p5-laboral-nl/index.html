@@ -84,6 +84,279 @@
 
 <p>La base de datos contiene las siguientes variables.</p>
 
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">HOMONIMO</th>
+      <th style="text-align: left">NOMBRE</th>
+      <th style="text-align: left">DESCRIPCION</th>
+      <th style="text-align: left">FORMAT</th>
+      <th style="text-align: left">EJEMPLO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">EMPLEADOR</td>
+      <td style="text-align: left">Empleador</td>
+      <td style="text-align: left">Nombre de la empresa contratando. “ND” Si la empresa es anonima.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Schneider Electric México</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PUESTO</td>
+      <td style="text-align: left">Puesto</td>
+      <td style="text-align: left">Nombre del puesto.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Asesor Comercial Industrial *Monterrey*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SALARIO_DESC</td>
+      <td style="text-align: left">Descripción de Salario</td>
+      <td style="text-align: left">Descripción del salario, puesto por la empresa de manera semi-homologada por el sitio.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">De $25000 a $28000 bruto por mes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CONOCIMIENTOS_DESC</td>
+      <td style="text-align: left">Descripción de Conocimientos</td>
+      <td style="text-align: left">Descripción de los conocimientos necesarios, bajo el apartado de “Requisitos para postularse”.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Inglés Avanzado</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TIPO_PUESTO</td>
+      <td style="text-align: left">Tipo de Puesto</td>
+      <td style="text-align: left">Tipo de puesto descrito por la empresa, homologado por el sitio.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Full-time</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PUBLICACION_FECHA_DESC</td>
+      <td style="text-align: left">Fecha de Publicación</td>
+      <td style="text-align: left">Fecha de publicación en palabras, obtenido directamente del sitio.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">23 de febrero de 2016</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AREA</td>
+      <td style="text-align: left">Area de Empleo</td>
+      <td style="text-align: left">Area de empleo, según descripción de empresa.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Diseño</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LUGAR</td>
+      <td style="text-align: left">Lugar de Empleo</td>
+      <td style="text-align: left">Lugar de empleo, según descripción de empresa.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Monterrey, Nuevo León</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RESIDENCIA</td>
+      <td style="text-align: left">Residencia Requerida</td>
+      <td style="text-align: left">Residencia del empleo, según descripción de la empresa. Puede variar sustancialmente.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Nuevo León</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DESCRIPTORES_TABLA</td>
+      <td style="text-align: left">Nombres de las columnas de tabla de descripción</td>
+      <td style="text-align: left">Los nombres de los renglones en la tabla de descripción del empleo. Se separa por “_|.|_” para poder obtener fácilmente.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Publicado_|.|_Área_|.|_Tipo de puesto_|.|_Salario_|.|_Lugar de trabajo_|.|_Sexo_|.|_Residencia_|.|_Edad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DATOS_CRUDOS_TABLA</td>
+      <td style="text-align: left">Datos de la tabla de descripción</td>
+      <td style="text-align: left">Los datos de los renglones en la tabla de descripción del empleo. Se separa por “_|.|_” para poder obtener fácilmente.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">29 de febrero de 2016_|.|_Diseño”_|.|_Full-time_|.|_De $10000 a $14000 neto por mes_|.|_Nuevo León            _|.|_Femenino”_|.|_Nuevo León_|.|_De 25 a 37 años.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CADENA_ANUNCIO</td>
+      <td style="text-align: left">Cadena de Anuncio</td>
+      <td style="text-align: left">La cadena del anuncio, según la clasificación del sitio. Sirve también para categorizar. Separado por “_|.|_” para poder obtener fácilmente.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Bolsa de trabajo_|.|_Diseño_|.|_Encargada de Imprenta</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INDUSTRIA</td>
+      <td style="text-align: left">Industria</td>
+      <td style="text-align: left">La industria de la empresa, según reportada y semi-homologada por el sitio.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Manufactura</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DESCRIPCION_EMPRESA</td>
+      <td style="text-align: left">Descripción de Empresa</td>
+      <td style="text-align: left">Descripción de la empresa, obtenido del cuadro derecho del sitio.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Schneider Electric, especialista mundial en administración de energia, ofrece soluciones integradas para hacer que la energía sea segura, confiable, eficiente y productiva para los mercados de energía e infraestructura, de industria, de centros de administración de datos y redes, de edificios y residencial.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UBICACION_EMPRESA</td>
+      <td style="text-align: left">Ubicación de Empresa</td>
+      <td style="text-align: left">Ubicación de la empresa, obtenido del cuadro derecho del sitio. Se elimina la ruta a google maps por errores de descarga.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Arteaga Pte. S/N entre Amado Nervo y Rayón Centro de Monterrey, Monterrey, Nuevo León</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CADENA_DESC_EMPRESA</td>
+      <td style="text-align: left">Cadena de Descripción de Empresa</td>
+      <td style="text-align: left">La cadena de la empresa es una tabla de descripción de la misma. Generalmente incluye industria, descripción y ubicación. Con esta cadena se llenan los campos designados para ello, pero se incluye la cadena entera. Se separa por “_|.|_”.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Manufactura_|.|_Schneider Electric, especialista mundial en administración de energia, ofrece soluciones integradas para hacer que la energía sea segura, confiable, eficiente y productiva para los mercados de energía e infraestructura, de industria, de centros de administración de datos y redes, de edificios y residencial._|.|_Nuevo León</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CONT</td>
+      <td style="text-align: left">Contenido entero</td>
+      <td style="text-align: left">Todo el contenido de la oportunidad laboral. Incluye toda la descripción de la vacante y cualquier mensaje que el anunciante puso. Los brincos de parráfos se separan por “_|.|_”.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Por expasion estamos contratando un especialista en proyectos de innovación y sistemas que cumpla los siguientes requisitos:\r_|.|_Experiencia en implementación de proyectos en sistemas TI.\r_|.|_Detección, analisis y propuestas de mejora en operación de sistemas TI\r_|.|_Manejo de SQL o reporteadores. (etc…)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ID</td>
+      <td style="text-align: left">Identificador único</td>
+      <td style="text-align: left">El sitio no tiene un identificador único de oportunidad, se usa la ruta relativa del URL.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">/empleos/application-engineer-sw-lob3-schneider-electric-mexico-1110775973.html</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FECHA</td>
+      <td style="text-align: left">Fecha de Descarga</td>
+      <td style="text-align: left">Fecha de descarga de la información.</td>
+      <td style="text-align: left">Date (yyyy-mm-dd)</td>
+      <td style="text-align: left">2016-03-01</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HORA</td>
+      <td style="text-align: left">Hora de Descarga</td>
+      <td style="text-align: left">Hora de descarga de la información.</td>
+      <td style="text-align: left">Datetime (yyyy-mm-dd hr:min:sec)</td>
+      <td style="text-align: left">2016-03-01 03:06:19 CST</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PUESTO_H</td>
+      <td style="text-align: left">Puesto Homologado</td>
+      <td style="text-align: left">De la columna de puesto se eliminan los espacios dobles, asteriscos y se convierte todo a mayusculas sin acentos.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">ASESOR COMERCIAL INDUSTRIAL MONTERREY</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AREA_H</td>
+      <td style="text-align: left">Area Homologada</td>
+      <td style="text-align: left">De la columna de area se eliminan los espacios dobles, asteriscos y se convierte todo a mayusculas sin acentos.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">DISEÑO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SALARIO_DESC_H</td>
+      <td style="text-align: left">Descripción de Salario Homologado</td>
+      <td style="text-align: left">De la columna de salario_desc se eliminan los espacios dobles, asteriscos y se convierte todo a mayusculas sin acentos.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">DE $25000 A $28000 BRUTO POR MES</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CONOCIMIENTOS_DESC_H</td>
+      <td style="text-align: left">Descripción de Conocimientos Homologado</td>
+      <td style="text-align: left">De la columna de conocimientos_desc se eliminan los espacios dobles, asteriscos y se convierte todo a mayusculas sin acentos.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">INGLES AVANZADO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SALARIO_MIN</td>
+      <td style="text-align: left">Rango Mínimo de Salario</td>
+      <td style="text-align: left">De la columna de salario_desc se obtiene el valor en pesos más bajo.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">25000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SALARIO_MAX</td>
+      <td style="text-align: left">Rango Máximo de Salario</td>
+      <td style="text-align: left">De la columna de salario_desc se obtiene el valor en pesos más alto.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">28000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SALARIO_PROM</td>
+      <td style="text-align: left">Promedio de Salario</td>
+      <td style="text-align: left">Promedio de las columnas de salario_max y salario_min.</td>
+      <td style="text-align: left">Numerico</td>
+      <td style="text-align: left">26500</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SALARIO_TIPO</td>
+      <td style="text-align: left">Tipo de Salario</td>
+      <td style="text-align: left">Tipo de salario (neto o bruto).</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">BRUTO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SALARIO_FRECUENCIA</td>
+      <td style="text-align: left">Frecuencia de Salario</td>
+      <td style="text-align: left">Frecuencia del salario. Puede ser mensual, quincenal o semanal. Se obtiene de la descripción del salario.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">MES</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INGLES</td>
+      <td style="text-align: left">Ingles</td>
+      <td style="text-align: left">Verdadero si descripción de conocimientos menciona “ingles”.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LENGUA_AVANZADA</td>
+      <td style="text-align: left">Lengua Avanzada</td>
+      <td style="text-align: left">Verdadero si descripción de conocimientos menciona “avanzado” o “avanzada”. Si ademas es verdadera la columna de inglés, se trata de “inglés avanzado”.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LENGUA_INTERMEDIO</td>
+      <td style="text-align: left">Lengua Intermedia</td>
+      <td style="text-align: left">Verdadero si descripción de conocimientos menciona “intermedio” o “intermedia”. Si ademas es verdadera la columna de inglés, se trata de “inglés avanzado”.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">VENTAS</td>
+      <td style="text-align: left">Ventas</td>
+      <td style="text-align: left">Verdadero si contenido menciona “ventas”, “vendedor” o “vendedora”.</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PUBLICACION_FECHA_H</td>
+      <td style="text-align: left">Fecha de Publicación Homologada</td>
+      <td style="text-align: left">De la columna de fecha en palabras, se obtiene la fecha en formato de maquina.</td>
+      <td style="text-align: left">Date (yyyy-mm-dd)</td>
+      <td style="text-align: left">2016-02-23</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EMAIL_CONTACTO</td>
+      <td style="text-align: left">Email de Contacto</td>
+      <td style="text-align: left">Si el contenido contiene un correo de contacto, se obtiene el último.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">empleos@empresa.com</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DOMINIO_CONTACTO</td>
+      <td style="text-align: left">Dominio de Contacto</td>
+      <td style="text-align: left">Si el contenido contiene un correo de contacto, se obtiene el dominio (URL) del último.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">@empresa.com</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SITIO_CONTACTO</td>
+      <td style="text-align: left">Sitio de Contacto</td>
+      <td style="text-align: left">Si el contenido contiene un sitio web de contacto, se obtiene el último.</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">www.pontucv.com</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="mtodo-de-recoleccin">Método de Recolección</h3>
 
 <p>Usando un algóritmo de escáneo en <em>R</em>, <em>Python</em> y <em>Javascript</em>, de manera diaria se recolecta información de empleos disponibles en <strong>http://www.bumeran.com.mx</strong>. Los scripts son propiedad exclusiva de <strong>numbersmart</strong>.</p>
