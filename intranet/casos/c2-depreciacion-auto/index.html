@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Numbersmart is a business based in Monterrey, México, dedicated to providing internet-scraped datasets.
+">
+    <meta name="author" content="Numbersmart">
+
+    <title>Caso Numbersmart - Depreciación de Autos</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+	<body>
+	  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/#home">Numbersmart</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">  
+            	<li>
+                    <a class="page-scroll" href="/intranet/#diccionarios-de-datos">Diccionarios</a>
+                </li>         
+                <li>
+                    <a class="page-scroll" href="/intranet/#casos">Casos</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+	 
+<div class="container">
+ <div class = "intracontent">
+ <p><small>
+Los casos de <em>Numbersmart</em> son pequeños documentos hechos para demostrar la utilidad de la información que vendemos. En la mayoría de los casos se trata de un problema que ya se ha resuelto con un cliente, pero mantenemos al cliente en la confidencialidad y alteramos sustancialmente la información. <strong>Los datos no son reales, pero lo que se puede obtener de ellos es muy parecido en los verdaderos</strong>.
+</small></p>
+
+<hr />
+
+<h1 id="caso-de-negocio">Caso de Negocio</h1>
+
+<h2 id="preguntas-a-responder">Pregunta(s) a responder:</h2>
+
+<ul>
+  <li>¿Que marca de automóvil se deprecia menos en el tiempo?</li>
+</ul>
+
+<h2 id="bases-usadas">Bases usadas:</h2>
+
+<ul>
+  <li>
+    <p><a href="/intranet/p3-autos/index.html">Venta de Autos en Monterrey (P3)</a></p>
+  </li>
+  <li>
+    <p><a href="/intranet/p4-autos-df/index.html">Venta de Autos en la Ciudad de México (P4)</a></p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="overview">Overview</h2>
+
+<p>Para responder a la pregunta, es importante saber la diferencia de precio después de controlar por una serie de factores, tales como los kilométros recorridos y el tipo de coche.</p>
+
+<p>Asi mísmo, como se trata de estimar un diferencial de precio (la depreciación) se debe tener el precio inicial de venta (o compra). En el caso de no tener este dato, se puede estimar el efecto esperado del tiempo con los datos, no la depreciación total.</p>
+
+<h2 id="metodologa">Metodología</h2>
+
+<p>Primero, vamos a organizar y explorar la información de una manera descriptiva. Aquí nos interesa saber como se compone y que tipo de conclusiones podemos hacer.</p>
+
+<p>Después, usaremos las columnas más importantes para tratar de obtener <em>insights</em> de los datos. Esto significa, encontrar patrones que nos ayuden a tomar decisiones. Haremos esto mediante la regresión lineal porque nos permite aislar los efectos de diferentes variables sobre lo que nos interesa. Existen muchos tipos de modelos y transformaciones que se pueden hacer a los datos, pero en este caso nos concentraremos en el análisis, más que el modelado.</p>
+
+<p>Por si mismo, los estimadores del modelo también nos pueden arrojar conclusiones interesantes en forma de elasticidades (el cambio porcentual de nuestra variable al incrementar o reducir una variable independiente). Se puede leer más de elasticidades <a href="https://es.wikipedia.org/wiki/Elasticidad_(econom%C3%ADa)">aquí</a>.</p>
+
+<p>El modelo lo podemos aplicar retrospectivamente para estimar la exactitud y por supuesto para responder nuestra pregunta inicial.</p>
+
+<h2 id="anlisis">Análisis</h2>
+
+<p>Vamos a utilizar todos los datos disponibles hasta hoy de automóviles en ambas ciudades. Obtenemos un total de 43,145 autos únicos.</p>
+
+<p>Vamos a analizar dos de las dimensiones más importantes: el precio contra los kilométros reportados.</p>
+
+<p><img src="/img/casos/caso_2_g1.png" alt="precio vs kms" /></p>
+
+<p>La gráfica nos indica una relación, pero no es del todo exacta. De hecho, existe todavía bastante ruido. Una de las cosas que podríamos hacer es tratar de pintar con respecto a la marca del auto, que tal vez tiene algo que ver con el precio.</p>
+
+<p><img src="/img/casos/caso_2_g2.png" alt="precio vs kms por marca" /></p>
+
+<p>Aquí observamos fácilmente que la marca “1” es la más barata de todas.</p>
+
+<p>El nivel de precio y su relación con respecto a los kilometros es importante, pero no resuelve nuestra pregunta inicial porque al fin de cuentas sabemos que algunas marcas simplemente son más caras.</p>
+
+<p>Para esto, tenemos que construir un indicador que nos dé el precio inicial. En este caso, vamos a tomar el precio promedio de venta de la marca y modelo en un año inicial (en el 2016). Asumimos que la inflación es depreciable y no afecta nuestro análisis sustancialmente.</p>
+
+<p>La información se puede visualizar, básicamente así:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>ID</strong></td>
+      <td><strong>MARCA (Y OTRAS CARACTERISTICAS)</strong></td>
+      <td><strong>KMS</strong></td>
+      <td><strong>PRECIO_VENTA</strong></td>
+      <td><strong>PRECIO_HOY</strong></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1, ….</td>
+      <td>45,000</td>
+      <td>125,800</td>
+      <td>208,500</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1, ….</td>
+      <td>20,000</td>
+      <td>145,200</td>
+      <td>208,500</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2, ….</td>
+      <td>40,000</td>
+      <td>245,200</td>
+      <td>358,500</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2, ….</td>
+      <td>60,000</td>
+      <td>215,000</td>
+      <td>358,500</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>3, ….</td>
+      <td>15,000</td>
+      <td>205,200</td>
+      <td>260,000</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Usando este formato de información, vamos a estimar un modelo lineal, tomando como variable independiente al diferencial entre el precio de hoy y el de venta reportado, obteniendo los siguientes resultados:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>COLUMNA</strong></td>
+      <td><strong>COEFICIENTE</strong></td>
+      <td><strong>VALOR-P</strong></td>
+    </tr>
+    <tr>
+      <td>INTERCEPTO</td>
+      <td>0.185</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 1</td>
+      <td>0.002</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 2</td>
+      <td>0.001</td>
+      <td>&lt;0.05</td>
+    </tr>
+    <tr>
+      <td>MARCA = 3</td>
+      <td>0.004</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 4</td>
+      <td>0.003</td>
+      <td>&lt;0.05</td>
+    </tr>
+    <tr>
+      <td>MARCA = 5</td>
+      <td>0.004</td>
+      <td>&lt;0.05</td>
+    </tr>
+    <tr>
+      <td>MARCA = 6</td>
+      <td>0.008</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 7</td>
+      <td>0.009</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 8</td>
+      <td>0.001</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>KMS (MILES)</td>
+      <td>0.005</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MESES</td>
+      <td>0.001</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>AUTOMATICO = 1</td>
+      <td>-0.005</td>
+      <td>&lt;0.10</td>
+    </tr>
+    <tr>
+      <td>UNICO_DUENO = 1</td>
+      <td>-0.006</td>
+      <td>ns</td>
+    </tr>
+    <tr>
+      <td><strong>R-squared: 0.8941</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>La consistencia de la información, y gracias a contar con dos bases en dos ciudades, nos permite agregar una variable más, la de la ciudad, para observar si el efecto difiere entre ambas:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>COLUMNA</strong></td>
+      <td><strong>COEFICIENTE</strong></td>
+      <td><strong>VALOR-P</strong></td>
+    </tr>
+    <tr>
+      <td>INTERCEPTO</td>
+      <td>0.185</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 1</td>
+      <td>0.002</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 2</td>
+      <td>0.001</td>
+      <td>&lt;0.05</td>
+    </tr>
+    <tr>
+      <td>MARCA = 3</td>
+      <td>0.004</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 4</td>
+      <td>0.003</td>
+      <td>&lt;0.05</td>
+    </tr>
+    <tr>
+      <td>MARCA = 5</td>
+      <td>0.004</td>
+      <td>&lt;0.05</td>
+    </tr>
+    <tr>
+      <td>MARCA = 6</td>
+      <td>0.004</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 7</td>
+      <td>0.003</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 8</td>
+      <td>0.001</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>KMS (MILES)</td>
+      <td>0.005</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MESES</td>
+      <td>0.001</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>AUTOMATICO = 1</td>
+      <td>-0.005</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>UNICO_DUENO = 1</td>
+      <td>-0.006</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>CIUDAD_MX = 1</td>
+      <td>0.004</td>
+      <td>&lt;0.05</td>
+    </tr>
+    <tr>
+      <td><strong>R-squared: 0.9296</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Los outputs del modelo nos permiten interpretar un par de cosas útiles para responder nuestra pregunta inicial.</p>
+
+<h2 id="respuesta">Respuesta</h2>
+
+<p>Primero, podemos decir que las marcas que más se deprecian, si mantenemos todo lo demás constante (kilométros, meses, etc) son la marca 6 y 7 (tienen un coeficiente más alto). La marca que menos se deprecia es la 2. También pareciera que la Ciudad de México tiene menos aprecio por las marcas 6 y 7 por que su efecto se diluye al controlar por la ciudad.</p>
+
+<p>Directamente respondiendo a la pregunta, en la Ciudad de México lo menos conveniente es comprar un coche de marca 6 y 7 (si lo que se quiere hacer es cuidar la depreciación). Si lo que se busca es comprar la marca que más mantiene su valor, al mantener constantes los demás valores, se trata de la marca 2 en cualquiera de las dos ciudades.</p>
+
+ </div>
+</div>
+ <!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
+
+<!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/landing-page.js"></script>
+
+	</body>
+
+</html>

@@ -63,59 +63,71 @@
 	 
 <div class="container">
  <div class = "intracontent">
- <p><small>
-<strong>última actualización (1-mar-2016): 12,984,939 data points</strong>
-</small></p>
+ <h2 id="precios-de-medicamentos-y-belleza">Precios de Medicamentos y Belleza</h2>
 
-<hr />
-
-<p>Bienvenido a nuestra intranet, dónde podrás encontrar todo lo necesario para manejar la valiosa información que ponemos a tu disposición.</p>
-
-<p>Para asesoria por favor contacta a: <strong>eduardo@numbersmart.mx</strong>, para adquirir un servicio de base de datos adicional contactar a <strong>joseluis@numbersmart.mx</strong>, o bien <strong>datos@numbersmart.mx</strong>.</p>
-
-<hr />
-
-<h2 id="diccionarios-de-datos">Diccionarios de Datos</h2>
-
-<h4 id="monterrey">Monterrey</h4>
+<p><strong>Data set</strong> diseñado para el mercado de ventas a menudeo (<em>retail</em>) o franquicias de farmacias. Entre sus posibles aplicaciones están:</p>
 
 <ul>
-  <li><a href="/intranet/p1-ventas-casas/index.html">Ventas de casas</a></li>
-  <li><a href="/intranet/p2-rentas-inmuebles/index.html">Rentas de inmuebles</a></li>
-  <li><a href="/intranet/p3-autos/index.html">Automóviles</a></li>
-  <li><a href="/intranet/p5-laboral-nl/index.html">Mercado Laboral</a></li>
+  <li>Modelos de elasticidad de precios</li>
+  <li>Investigación de mercados</li>
+  <li>Estudio de drivers en el mercado</li>
+  <li>Detección de oportunidades de compra o venta</li>
 </ul>
 
-<h4 id="distrito-federal">Distrito Federal</h4>
+<p>Identificador numbersmart: P8</p>
+
+<h3 id="variables">Variables</h3>
+
+<p>La base de datos contiene las siguientes variables.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>HOMONIMO</td>
+      <td>NOMBRE</td>
+      <td>DESCRIPCION</td>
+      <td>FORMAT</td>
+      <td>EJEMPLO</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mtodo-de-recoleccin">Método de Recolección</h3>
+
+<p>Usando un algóritmo de escáneo en <em>R</em>, de manera diaria, se recolecta información de productos en venta en <strong>www.heb.com.mx</strong>. Los paquetes utilizados y los scripts son propiedad exclusiva de <strong>numbersmart</strong>.</p>
+
+<h3 id="periodo-y-frecuencia-de-recoleccin">Periodo y Frecuencia de Recolección</h3>
+<p>Desde 6 de marzo del 2016 y una vez al día todos los días, salvo contadas excepciones. El calendario de descargas se puede consultar a continuación.</p>
+
+<p><img src="/img/cals/p8_2016.png" alt="Autos 2016" /></p>
+
+<p>La descarga se hace, aproximadamente a las 4:00 p.m, pero varía por día. Ningún dato es reemplazado, aún y cuando sea identico al recopilado previamente.</p>
+
+<h3 id="validacin-y-limpieza">Validación y limpieza</h3>
+<p>Los siguientes transformaciones o cambios se efectúan a la información descargada:</p>
 
 <ul>
-  <li><a href="/intranet/p4-autos-df/index.html">Automóviles</a></li>
+  <li>Se extrae la presentación en el campo de detalles.</li>
+  <li>Se eliminan saltos de página y texto.</li>
+  <li>En casos dónde no existe la información, esta se rellena con “ND”.</li>
+  <li>los campos que lo requieren se traducen a númericos (si todo lo escrito en el campo no es estrictamente un número, se guarda como nulo).</li>
 </ul>
 
-<h4 id="quertaro">Querétaro</h4>
+<h3 id="cobertura">Cobertura</h3>
 
-<ul>
-  <li><a href="/intranet/p6-laboral-qro/index.html">Mercado Laboral</a></li>
-</ul>
+<p>De contar con un sitio responsivo, la cobertura es para el estado de Nuevo León. La tasa de error de recolección es de aproximadamente 0.001% (por cada mil anuncios, 1 no se recopilan por problemas de conectividad o del sitio web).</p>
 
-<h4 id="puebla">Puebla</h4>
+<h3 id="financiamiento-y-conflictos-de-inters">Financiamiento y conflictos de interés</h3>
+<p>No existen conflictos de interés en la recolección de la información. El financiamiento fue hecho en su totalidad por <strong>numbersmart</strong>.</p>
 
-<ul>
-  <li><a href="/intranet/p7-laboral-pue/index.html">Mercado Laboral</a></li>
-</ul>
+<h3 id="checks-de-errores">Checks de errores</h3>
 
-<hr />
+<p>Cada cuadro representa la totalidad de los datos de una columna en una fecha. El color nos indica el porcentaje de error en la columna (datos con valores nulos o “ND”).</p>
 
-<h2 id="casos">Casos</h2>
+<p><img src="/img/cals/chks_p8_2016.png" alt="Errores 2016" /></p>
 
-<ul>
-  <li>
-    <p><a href="/intranet/casos/c1-casas-baja-precios/index.html">Caída en Precios de Casas</a></p>
-  </li>
-  <li>
-    <p><a href="/intranet/casos/c2-depreciacion-auto/index.html">Depreciación por marca de Auto</a></p>
-  </li>
-</ul>
+<h3 id="material-de-referencia">Material de Referencia</h3>
+
 
  </div>
 </div>
