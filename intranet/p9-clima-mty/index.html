@@ -65,13 +65,13 @@
  <div class = "intracontent">
  <h2 id="condiciones-climatolgicas-en-monterrey">Condiciones Climatológicas en Monterrey</h2>
 
-<p><strong>Data set</strong> diseñado para el mercado de ventas a menudeo (<em>retail</em>) o franquicias de farmacias. Entre sus posibles aplicaciones están:</p>
+<p><strong>Data set</strong> diseñado para el análisis de condiciones climatológicas o diseño de modelos. Entre sus posibles aplicaciones están:</p>
 
 <ul>
-  <li>Modelos de elasticidad de precios</li>
-  <li>Investigación de mercados</li>
-  <li>Estudio de drivers en el mercado</li>
-  <li>Detección de oportunidades de compra o venta</li>
+  <li>Modelos de series de tiempo, ventas o temporalidad</li>
+  <li>Investigación sobre fenómenos climatológicos</li>
+  <li>Medición de riesgos</li>
+  <li>Investigación epidemiologica</li>
 </ul>
 
 <p>Identificador numbersmart: P9</p>
@@ -85,28 +85,21 @@
 
 <h3 id="mtodo-de-recoleccin">Método de Recolección</h3>
 
-<p>Usando un algóritmo de escáneo en <em>R</em>, de manera diaria, se recolecta información de productos en venta en <strong>www.heb.com.mx</strong>. Los paquetes utilizados y los scripts son propiedad exclusiva de <strong>numbersmart</strong>.</p>
+<p>Usando un algóritmo de escáneo en <em>R</em>, de manera diaria, se recolecta información condiciones de clima en <strong>www.weather.com</strong>. Los paquetes utilizados y los scripts son propiedad exclusiva de <strong>numbersmart</strong>.</p>
 
 <h3 id="periodo-y-frecuencia-de-recoleccin">Periodo y Frecuencia de Recolección</h3>
-<p>Desde 6 de marzo del 2016 y una vez al día todos los días, salvo contadas excepciones. El calendario de descargas se puede consultar a continuación.</p>
+<p>Desde 9 de enero del 2015 y una vez al día todos los días, salvo contadas excepciones. El calendario de descargas se puede consultar a continuación.</p>
 
-<p><img src="/img/cals/p8_2016.png" alt="Autos 2016" /></p>
+<p><img src="/img/cals/p9_2016.png" alt="Autos 2016" /></p>
 
-<p>La descarga se hace, aproximadamente a las 4:00 p.m, pero varía por día. Ningún dato es reemplazado, aún y cuando sea identico al recopilado previamente.</p>
+<p>La descarga se hace al momento del amanecer, (aproximadamente a las 6:50 a.m, pero varía por día). Ningún dato es reemplazado, aún y cuando sea identico al recopilado previamente.</p>
 
 <h3 id="validacin-y-limpieza">Validación y limpieza</h3>
-<p>Los siguientes transformaciones o cambios se efectúan a la información descargada:</p>
-
-<ul>
-  <li>Se extrae la presentación en el campo de detalles.</li>
-  <li>Se eliminan saltos de página y texto.</li>
-  <li>En casos dónde no existe la información, esta se rellena con “ND”.</li>
-  <li>los campos que lo requieren se traducen a númericos (si todo lo escrito en el campo no es estrictamente un número, se guarda como nulo).</li>
-</ul>
+<p>No se realizan cambios significativos a la información.</p>
 
 <h3 id="cobertura">Cobertura</h3>
 
-<p>De contar con un sitio responsivo, la cobertura es para el estado de Nuevo León. La tasa de error de recolección es de aproximadamente 0.001% (por cada mil anuncios, 1 no se recopilan por problemas de conectividad o del sitio web).</p>
+<p>La cobertura es para el área geográfica MNL0068 (zona metropolitana de Monterrey). La tasa de error de recolección es de aproximadamente 0.0001% (por cada 10 mil días, 1 no se recopilan por problemas de conectividad o del sitio web).</p>
 
 <h3 id="financiamiento-y-conflictos-de-inters">Financiamiento y conflictos de interés</h3>
 <p>No existen conflictos de interés en la recolección de la información. El financiamiento fue hecho en su totalidad por <strong>numbersmart</strong>.</p>
@@ -115,10 +108,7 @@
 
 <p>Cada cuadro representa la totalidad de los datos de una columna en una fecha. El color nos indica el porcentaje de error en la columna (datos con valores nulos o “ND”).</p>
 
-<p><img src="/img/cals/chks_p8_2016.png" alt="Errores 2016" /></p>
-
-<h3 id="material-de-referencia">Material de Referencia</h3>
-
+<p><img src="/img/cals/chks_p9_2016.png" alt="Errores 2016" /></p>
 
  </div>
 </div>

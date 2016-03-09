@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Numbersmart is a business based in Monterrey, México, dedicated to providing internet-scraped datasets.
+">
+    <meta name="author" content="Numbersmart">
+
+    <title>Caso Numbersmart - Tasa de Reemplazos</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+	<body>
+	  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/#home">Numbersmart</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">  
+            	<li>
+                    <a class="page-scroll" href="/intranet/#diccionarios-de-datos">Diccionarios</a>
+                </li>         
+                <li>
+                    <a class="page-scroll" href="/intranet/#casos">Casos</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+	 
+<div class="container">
+ <div class = "intracontent">
+ <p><small>
+Los casos de <em>Numbersmart</em> son pequeños documentos hechos para demostrar la utilidad de la información que vendemos. En la mayoría de los casos se trata de un problema que ya se ha resuelto con un cliente, pero mantenemos al cliente en la confidencialidad y alteramos sustancialmente la información. <strong>Los datos no son reales, pero lo que se puede obtener de ellos es muy parecido en los verdaderos</strong>.
+</small></p>
+
+<hr />
+
+<h1 id="caso-de-negocio">Caso de Negocio</h1>
+
+<h2 id="preguntas-a-responder">Pregunta(s) a responder:</h2>
+
+<ul>
+  <li>¿Qué industrias tienen más expectativas de crecimiento?</li>
+</ul>
+
+<h2 id="bases-usadas">Bases usadas:</h2>
+
+<ul>
+  <li><a href="/intranet/p5-laboral-nl/index.html">Empleos en Monterrey (P5)</a></li>
+  <li><a href="/intranet/p6-laboral-qro/index.html">Empleos en Querétaro (P6)</a></li>
+  <li><a href="/intranet/p7-laboral-pue/index.html">Empleos en Puebla (P7)</a></li>
+</ul>
+
+<hr />
+
+<h2 id="overview">Overview</h2>
+
+<p>Para responder a la pregunta, primero debemos definir lo que nos referimos como expectativas de crecimiento. En un contexto de normalidad económica, y asumiendo que la tasa de reemplazo es parecida a través de industrias (aunque no necesariamente por tipo de puesto), podemos intuir que el número de contrataciones está en función del crecimiento esperado. Al fin de cuentas, si se espera crecer menos en terminos de ingresos, es poco probable que se este muy preocupado por contratar a empleados.</p>
+
+<p>En este caso, entonces, usaremos a la tasa de contratación como proxy de crecimiento económico posterior, por industria.</p>
+
+<h2 id="metodologa">Metodología</h2>
+
+<p>Primero, vamos a organizar y explorar la información de una manera descriptiva. Aquí nos interesa saber como se compone y que tipo de conclusiones podemos hacer.</p>
+
+<p>Después, usaremos las columnas más importantes para tratar de obtener <em>insights</em> de los datos. Haremos esto mediante la regresión lineal porque nos permite aislar los efectos de diferentes variables sobre lo que nos interesa. Existen muchos tipos de modelos y transformaciones que se pueden hacer a los datos, pero en este caso nos concentraremos en el análisis, más que el modelado.</p>
+
+<p>Intentaremos también reducir el efecto que pudiesen tener las empresas grandes sobre el totalidad de la industria, al analizar el cambio porcentual con respecto a la plantilla total de la empresa.</p>
+
+<p>Si nuestro modelo es suficientemente robusto y se especifica de una manera correcta, podemos aislar el efecto de las expectativas de crecimiento implícitas que tiene cada empresa al contratar.</p>
+
+<h2 id="anlisis">Análisis</h2>
+
+<p>Usaremos para este análisis las bases de datos de empleos. Obtenemos un total de 741,829 mil registros y los homologamos a un formato parecido al siguiente:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>EMPLEADOR</strong></td>
+      <td><strong>PUESTO</strong></td>
+      <td><strong>SALARIO_PROM_BRUTO</strong></td>
+      <td><strong>INDUSTRIA</strong></td>
+      <td><strong>AREA_H</strong></td>
+      <td><strong>INGLES</strong></td>
+      <td><strong>DIAS_PUESTO</strong></td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>DIRECTOR DE VENTAS</td>
+      <td>29,200</td>
+      <td>MANUFACTURA</td>
+      <td>DIRECCION</td>
+      <td>TRUE</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>VENDEDOR</td>
+      <td>16,210</td>
+      <td>MANUFACTURA</td>
+      <td>VENTAS</td>
+      <td>TRUE</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>OPERADORES DE MAQUINA</td>
+      <td>9,210</td>
+      <td>MANUFACTURA</td>
+      <td>OPERACIONES</td>
+      <td>FALSE</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>VENDEDOR</td>
+      <td>14,310</td>
+      <td>MANUFACTURA</td>
+      <td>VENTAS</td>
+      <td>FALSE</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>OPERADORES DE MAQUINA</td>
+      <td>7,182</td>
+      <td>MANUFACTURA</td>
+      <td>OPERACIONES</td>
+      <td>TRUE</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>OPERADORES DE MAQUINA</td>
+      <td>5,890</td>
+      <td>MANUFACTURA</td>
+      <td>OPERACIONES</td>
+      <td>FALSE</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>VENDEDOR</td>
+      <td>12,839</td>
+      <td>SERVICIOS</td>
+      <td>VENTAS</td>
+      <td>FALSE</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>DIRECTOR DE LOGISTICA</td>
+      <td>41,800</td>
+      <td>SERVICIOS</td>
+      <td>DIRECCION</td>
+      <td>TRUE</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>ANALISTA DATOS</td>
+      <td>39,120</td>
+      <td>TELECOMUNICACIONES</td>
+      <td>TI</td>
+      <td>TRUE</td>
+      <td>51</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Al resumir, encontramos 19,352 puestos únicos totales, distribuidos en 3 meses y 10 industrias clave.</p>
+
+<p><img src="" alt="Puestos creados por industria" /></p>
+
+<p>Si bien parece que la industria con mayor demanda de empleos es la de ventas al menudeo (retail), esto no necesariamente implica un mayor crecimiento, sino que se puede deber a que tienen mayor rotación sus empleos.</p>
+
+<p>Más bien, lo que se debe hacer es controlar por todos estos efectos.</p>
+
+<p>Vamos a crear un indicador de crecimiento, que es solamente la diferencia en puestos publicados entre el primer mes y el último.</p>
+
+<hr />
+
+<p><img src="" alt="precio vs kms" /></p>
+
+<p>La gráfica nos indica una relación, pero no es del todo exacta. De hecho, existe todavía bastante ruido. Una de las cosas que podríamos hacer es tratar de pintar con respecto a la marca del auto, que tal vez tiene algo que ver con el precio.</p>
+
+<p><img src="" alt="precio vs kms por marca" /></p>
+
+<p>Aquí observamos fácilmente que la marca “1” es la más barata de todas.</p>
+
+<p>El nivel de precio y su relación con respecto a los kilometros es importante, pero no resuelve nuestra pregunta inicial porque al fin de cuentas sabemos que algunas marcas simplemente son más caras.</p>
+
+<p>Para esto, tenemos que construir un indicador que nos dé el precio inicial. En este caso, vamos a tomar el precio promedio de venta de la marca y modelo en un año inicial (en el 2016). Asumimos que la inflación es depreciable y no afecta nuestro análisis sustancialmente.</p>
+
+<p>La información se puede visualizar, básicamente así:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>ID</strong></td>
+      <td><strong>MARCA (Y OTRAS CARACTERISTICAS)</strong></td>
+      <td><strong>KMS</strong></td>
+      <td><strong>PRECIO_VENTA</strong></td>
+      <td><strong>PRECIO_HOY</strong></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1, ….</td>
+      <td>45,000</td>
+      <td>125,800</td>
+      <td>208,500</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1, ….</td>
+      <td>20,000</td>
+      <td>145,200</td>
+      <td>208,500</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2, ….</td>
+      <td>40,000</td>
+      <td>245,200</td>
+      <td>358,500</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2, ….</td>
+      <td>60,000</td>
+      <td>215,000</td>
+      <td>358,500</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>3, ….</td>
+      <td>15,000</td>
+      <td>205,200</td>
+      <td>260,000</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Usando este formato de información, vamos a estimar un modelo lineal, tomando como variable independiente al diferencial entre el precio de hoy y el de venta reportado, obteniendo los siguientes resultados: 
+|:———-|:————–|:———-|
+|<strong>COLUMNA</strong>|<strong>COEFICIENTE</strong>|<strong>VALOR-P</strong>|
+|INTERCEPTO|0.185|&lt;0.01|
+|MARCA = 1|0.002|&lt;0.01|
+|MARCA = 2|0.001|&lt;0.05|
+|MARCA = 3|0.004|&lt;0.01|
+|MARCA = 4|0.003|&lt;0.05|
+|MARCA = 5|0.004|&lt;0.05|
+|MARCA = 6|0.008|&lt;0.01|
+|MARCA = 7|0.009|&lt;0.01|
+|MARCA = 8|0.001|&lt;0.01|
+|KMS (MILES)|0.005|&lt;0.01|
+|MESES|0.001|&lt;0.01|
+|AUTOMATICO = 1|-0.005|&lt;0.10|
+|UNICO_DUENO = 1|-0.006|ns|
+| <strong>R-squared: 0.8941</strong> | | |</p>
+
+<p>La consistencia de la información, y gracias a contar con dos bases en dos ciudades, nos permite agregar una variable más, la de la ciudad, para observar si el efecto difiere entre ambas:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>COLUMNA</strong></td>
+      <td><strong>COEFICIENTE</strong></td>
+      <td><strong>VALOR-P</strong></td>
+    </tr>
+    <tr>
+      <td>INTERCEPTO</td>
+      <td>0.185</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 1</td>
+      <td>0.002</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 2</td>
+      <td>0.001</td>
+      <td>&lt;0.05</td>
+    </tr>
+    <tr>
+      <td>MARCA = 3</td>
+      <td>0.004</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 4</td>
+      <td>0.003</td>
+      <td>&lt;0.05</td>
+    </tr>
+    <tr>
+      <td>MARCA = 5</td>
+      <td>0.004</td>
+      <td>&lt;0.05</td>
+    </tr>
+    <tr>
+      <td>MARCA = 6</td>
+      <td>0.004</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 7</td>
+      <td>0.003</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MARCA = 8</td>
+      <td>0.001</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>KMS (MILES)</td>
+      <td>0.005</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>MESES</td>
+      <td>0.001</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>AUTOMATICO = 1</td>
+      <td>-0.005</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>UNICO_DUENO = 1</td>
+      <td>-0.006</td>
+      <td>&lt;0.01</td>
+    </tr>
+    <tr>
+      <td>CIUDAD_MX = 1</td>
+      <td>0.004</td>
+      <td>&lt;0.05</td>
+    </tr>
+    <tr>
+      <td><strong>R-squared: 0.9296</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Los outputs del modelo nos permiten interpretar un par de cosas útiles para responder nuestra pregunta inicial.</p>
+
+<h2 id="respuesta">Respuesta</h2>
+
+<p>Primero, podemos decir que las marcas que más se deprecian, si mantenemos todo lo demás constante (kilométros, meses, etc) son la marca 6 y 7 (tienen un coeficiente más alto). La marca que menos se deprecia es la 2. También pareciera que la Ciudad de México tiene menos aprecio por las marcas 6 y 7 por que su efecto se diluye al controlar por la ciudad.</p>
+
+<p>Directamente respondiendo a la pregunta, en la Ciudad de México lo menos conveniente es comprar un coche de marca 6 y 7 (si lo que se quiere hacer es cuidar la depreciación). Si lo que se busca es comprar la marca que más mantiene su valor, al mantener constantes los demás valores, se trata de la marca 2 en cualquiera de las dos ciudades.</p>
+
+ </div>
+</div>
+ <!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
+
+<!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/landing-page.js"></script>
+
+	</body>
+
+</html>

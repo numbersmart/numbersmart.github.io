@@ -80,8 +80,124 @@
 
 <p>La base de datos contiene las siguientes variables.</p>
 
-<p>|HOMONIMO |NOMBRE   |DESCRIPCION     |FORMAT  |EJEMPLO   |<br />
-|:———–|:———–|:—————-|:———–|:———–|</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">HOMONIMO</th>
+      <th style="text-align: left">NOMBRE</th>
+      <th style="text-align: left">DESCRIPCION</th>
+      <th style="text-align: left">FORMAT</th>
+      <th style="text-align: left">EJEMPLO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CATEGORIA</td>
+      <td style="text-align: left">Categoria de Producto</td>
+      <td style="text-align: left">Categoría bajo la cuál está archivado el producto en el sitio web</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">ANALGESICOS</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DESC</td>
+      <td style="text-align: left">Descripción</td>
+      <td style="text-align: left">Descripción del producto</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Rocainol Balsamo Dolores Musculares 45 gr</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SKU</td>
+      <td style="text-align: left">SKU de producto</td>
+      <td style="text-align: left">SKU (puede no coincidir con código de barra)</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">107429</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EXISTENCIA</td>
+      <td style="text-align: left">Existencia de producto</td>
+      <td style="text-align: left">Verdadero si el producto está en existencia</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">TRUE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRECIOS_C</td>
+      <td style="text-align: left">Precios en cadena</td>
+      <td style="text-align: left">La cadena de los o el precio publicado en formato de texto</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">25.90_|.|_22.61</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRECIO_NORMAL</td>
+      <td style="text-align: left">Precio normal</td>
+      <td style="text-align: left">Precio en pesos más alto</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">25.9</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRECIO_REBAJA</td>
+      <td style="text-align: left">Precio con rebaja</td>
+      <td style="text-align: left">Precio en pesos más bajo</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">22.61</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REBAJA</td>
+      <td style="text-align: left">Existe rebaja</td>
+      <td style="text-align: left">Verdadero si tiene rebaja</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">TRUE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REBAJA_PORCENTAJE</td>
+      <td style="text-align: left">Porcentaje de rebaja</td>
+      <td style="text-align: left">Si tiene rebaja, el porcentaje (en puntos) de rebaja</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">-12.702</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MARCA_HEB</td>
+      <td style="text-align: left">Marca</td>
+      <td style="text-align: left">Marca del producto, homologada por el sitio web</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">BAYER</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CADENA_DESC</td>
+      <td style="text-align: left">Cadena de descriptores</td>
+      <td style="text-align: left">Cadena (toda) la descripción del producto tal y como se ve en el sitio, separado cada renglón por <em>|.|</em></td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Marca: BAYER_|.|_Presentación: 40 PZ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRESENTACION</td>
+      <td style="text-align: left">Presentación</td>
+      <td style="text-align: left">La presentación del producto</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">40 PZ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ID</td>
+      <td style="text-align: left">Identificador único</td>
+      <td style="text-align: left">Al no tener un identificador único, se pone la liga directa en URL</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">http://www.heb.com.mx/bayer-aspirina-ad-tab-40-pza.html</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FECHA</td>
+      <td style="text-align: left">Fecha</td>
+      <td style="text-align: left">Fecha de descarga</td>
+      <td style="text-align: left">Date (yyyy-mm-dd)</td>
+      <td style="text-align: left">2016-03-06</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HORA</td>
+      <td style="text-align: left">Hora</td>
+      <td style="text-align: left">Hora de descarga</td>
+      <td style="text-align: left">Datetime (yyyy-mm-dd hr:min:sec)</td>
+      <td style="text-align: left">2016-03-06 15:12:22</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="mtodo-de-recoleccin">Método de Recolección</h3>
 
@@ -116,8 +232,6 @@
 <p>Cada cuadro representa la totalidad de los datos de una columna en una fecha. El color nos indica el porcentaje de error en la columna (datos con valores nulos o “ND”).</p>
 
 <p><img src="/img/cals/chks_p8_2016.png" alt="Errores 2016" /></p>
-
-<h3 id="material-de-referencia">Material de Referencia</h3>
 
 
  </div>
