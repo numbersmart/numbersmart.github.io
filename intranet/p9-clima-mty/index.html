@@ -78,19 +78,151 @@
 
 <h3 id="variables">Variables</h3>
 
-<p>La base de datos contiene las siguientes variables.</p>
+<p>La base de datos consiste de dos tablas, la primera que contiene todas las condiciones climáticas del día y la segunda todas las instancias de lluvia, de acuerdo a la alerta emitida por el sitio que se parsea. Las siguientes variables corresponden a las tablas:</p>
 
-<p>|HOMONIMO |NOMBRE   |DESCRIPCION     |FORMAT  |EJEMPLO   |<br />
-|:———–|:———–|:—————-|:———–|:———–|</p>
+<p><strong><em>Tabla 1</em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">HOMONIMO</th>
+      <th style="text-align: left">NOMBRE</th>
+      <th style="text-align: left">DESCRIPCION</th>
+      <th style="text-align: left">FORMAT</th>
+      <th style="text-align: left">EJEMPLO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">DIA_ID</td>
+      <td style="text-align: left">Día de medición</td>
+      <td style="text-align: left">Día de medición</td>
+      <td style="text-align: left">Date (YYYY-MM-DD)</td>
+      <td style="text-align: left">2016-01-02</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HORA_REPORTE</td>
+      <td style="text-align: left">Hora de reporte</td>
+      <td style="text-align: left">Hora de medición. El algoritmo lee a la hora de amanecer</td>
+      <td style="text-align: left">Datetime (YYYY-MM-DD hr:min:sec)</td>
+      <td style="text-align: left">2016-01-02 07:22:38</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GRADOS_C_R</td>
+      <td style="text-align: left">Grados reportados celsius</td>
+      <td style="text-align: left">Grados reportados a la hora de amanecer (en celsius)</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">24</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CONDICIONES</td>
+      <td style="text-align: left">Condiciones reportadas</td>
+      <td style="text-align: left">Condiciones reportadas para el día, de acuerdo a clasificadores del sitio</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Cloudy</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GRADOS_C_MIN</td>
+      <td style="text-align: left">Grados mínimos</td>
+      <td style="text-align: left">Grados mínimos esperados para el día (en celsius)</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">22</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GRADOS_C_MAX</td>
+      <td style="text-align: left">Grados máximos</td>
+      <td style="text-align: left">Grados máximos esperados para el día (en celsius)</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">34</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FECHA</td>
+      <td style="text-align: left">Fecha de Descarga</td>
+      <td style="text-align: left">Fecha de descarga. Debe coincidir, casi siempre con el DIA_ID</td>
+      <td style="text-align: left">Date (YYYY-MM-DD)</td>
+      <td style="text-align: left">2016-01-02</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HORA</td>
+      <td style="text-align: left">Hora de Descarga</td>
+      <td style="text-align: left">Hora de descarga. Debe coincidir, casi siempre, con la hora de reporte</td>
+      <td style="text-align: left">Datetime (YYYY-MM-DD hr:min:sec)</td>
+      <td style="text-align: left">2016-01-02 07:22:38</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em>Tabla 2</em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">HOMONIMO</th>
+      <th style="text-align: left">NOMBRE</th>
+      <th style="text-align: left">DESCRIPCION</th>
+      <th style="text-align: left">FORMAT</th>
+      <th style="text-align: left">EJEMPLO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">DIA</td>
+      <td style="text-align: left">Día de medición</td>
+      <td style="text-align: left">Día de lluvia</td>
+      <td style="text-align: left">Date (YYYY-MM-DD)</td>
+      <td style="text-align: left">2016-01-02</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HORA_LLUVIA</td>
+      <td style="text-align: left">Hora de medición</td>
+      <td style="text-align: left">Hora que la lluvia se registra en el sitio. Puede haber más de una por día (lluvia en la mañana y tarde)</td>
+      <td style="text-align: left">Datetime (YYYY-MM-DD hr:min:sec)</td>
+      <td style="text-align: left">2016-01-02 07:22:38</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TIPO_LLUVIA</td>
+      <td style="text-align: left">Tipo de lluvia</td>
+      <td style="text-align: left">Calificativo del sitio sobre tipo de lluvia</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Heavy rain</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GRADOS_F</td>
+      <td style="text-align: left">Grados Fahrenheit</td>
+      <td style="text-align: left">Grados en Fahrenheit registrados en el momento</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">81</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GRADOS_C</td>
+      <td style="text-align: left">Grados Celsius</td>
+      <td style="text-align: left">Grados en Celsius registrados en el momento</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">28</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FECHA</td>
+      <td style="text-align: left">Fecha de descarga</td>
+      <td style="text-align: left">Fecha de descarga. Debe coincidir, casi siempre en el día de lluvia</td>
+      <td style="text-align: left">Date (YYYY-MM-DD)</td>
+      <td style="text-align: left">2016-01-02</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HORA</td>
+      <td style="text-align: left">Hora de descarga</td>
+      <td style="text-align: left">Hora de descarga. Debe coincidir, casi siempre, con la hora de medición</td>
+      <td style="text-align: left">Datetime (YYYY-MM-DD hr:min:sec)</td>
+      <td style="text-align: left">2016-01-02 07:22:38</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="mtodo-de-recoleccin">Método de Recolección</h3>
 
 <p>Usando un algóritmo de escáneo en <em>R</em>, de manera diaria, se recolecta información condiciones de clima en <strong>www.weather.com</strong>. Los paquetes utilizados y los scripts son propiedad exclusiva de <strong>numbersmart</strong>.</p>
 
 <h3 id="periodo-y-frecuencia-de-recoleccin">Periodo y Frecuencia de Recolección</h3>
-<p>Desde 9 de enero del 2015 y una vez al día todos los días, salvo contadas excepciones. El calendario de descargas se puede consultar a continuación.</p>
-
-<p><img src="/img/cals/p9_2016.png" alt="Autos 2016" /></p>
+<p>Desde 9 de enero del 2015 y una vez al día todos los días, salvo contadas excepciones.</p>
 
 <p>La descarga se hace al momento del amanecer, (aproximadamente a las 6:50 a.m, pero varía por día). Ningún dato es reemplazado, aún y cuando sea identico al recopilado previamente.</p>
 
@@ -103,12 +235,6 @@
 
 <h3 id="financiamiento-y-conflictos-de-inters">Financiamiento y conflictos de interés</h3>
 <p>No existen conflictos de interés en la recolección de la información. El financiamiento fue hecho en su totalidad por <strong>numbersmart</strong>.</p>
-
-<h3 id="checks-de-errores">Checks de errores</h3>
-
-<p>Cada cuadro representa la totalidad de los datos de una columna en una fecha. El color nos indica el porcentaje de error en la columna (datos con valores nulos o “ND”).</p>
-
-<p><img src="/img/cals/chks_p9_2016.png" alt="Errores 2016" /></p>
 
  </div>
 </div>

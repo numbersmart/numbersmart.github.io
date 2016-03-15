@@ -65,11 +65,13 @@
  <div class = "intracontent">
  <h2 id="tweets-para-entrenar-modelos">Tweets para entrenar modelos</h2>
 
-<p><strong>Data set</strong> diseñado para ….. Entre sus posibles aplicaciones están:</p>
+<p><strong>Data set</strong> diseñado para entrenar modelos de redes neuronales o árboles de decisión. Entre sus posibles aplicaciones están:</p>
 
 <ul>
-  <li>…</li>
-  <li>…</li>
+  <li>Modelos de sentimiento de tweets</li>
+  <li>Medición de tendencias agregadas</li>
+  <li>Investigación académica</li>
+  <li>Modelos de segmentación de clientes potenciales</li>
 </ul>
 
 <p>Identificador numbersmart: P10</p>
@@ -78,24 +80,390 @@
 
 <p>La base de datos contiene las siguientes variables.</p>
 
-<p>|HOMONIMO |NOMBRE   |DESCRIPCION     |FORMAT  |EJEMPLO   |<br />
-|:———–|:———–|:—————-|:———–|:———–|</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">HOMONIMO</th>
+      <th style="text-align: left">NOMBRE</th>
+      <th style="text-align: left">DESCRIPCION</th>
+      <th style="text-align: left">FORMAT</th>
+      <th style="text-align: left">EJEMPLO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">text</td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">Texto completo de tweet</td>
+      <td style="text-align: left">Varchar(no limit)</td>
+      <td style="text-align: left">Esto es un ejemplo de un tweet :)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">screen_name</td>
+      <td style="text-align: left">Nombre</td>
+      <td style="text-align: left">Nombre de pantalla de twitter</td>
+      <td style="text-align: left">Varchar(no limit)</td>
+      <td style="text-align: left">number_smart</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">retweet_count</td>
+      <td style="text-align: left">Conteo de Retweets</td>
+      <td style="text-align: left">Conteo en el momento de retweets que tiene el tweet</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">favorited</td>
+      <td style="text-align: left">Favorito</td>
+      <td style="text-align: left">Verdadero si el tweet ha sido marcado como favorito</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">FALSE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">truncated</td>
+      <td style="text-align: left">Truncado</td>
+      <td style="text-align: left">Verdadero si tweet está truncado por espacio</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">TRUE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id_str</td>
+      <td style="text-align: left">Identificador único de tweet</td>
+      <td style="text-align: left">String único para identificar tweet</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">9182871222</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">in_reply_to_screen_name</td>
+      <td style="text-align: left">Respuesta</td>
+      <td style="text-align: left">Si se trata de una respuesta a un tweet, está el usuario del otro usuario</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">FALSE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">source</td>
+      <td style="text-align: left">Fuente</td>
+      <td style="text-align: left">Fuente (OS) de tweet</td>
+      <td style="text-align: left">Varchar(no limit)</td>
+      <td style="text-align: left">Twitter for Android</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">retweeted</td>
+      <td style="text-align: left">Retweet</td>
+      <td style="text-align: left">Verdadero si ha sido “Retweeted”</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">TRUE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">created_at</td>
+      <td style="text-align: left">Creado</td>
+      <td style="text-align: left">Momento de creación del tweet</td>
+      <td style="text-align: left">Date (Dia Mes DD HH:MM:SS +UTC YYYY)</td>
+      <td style="text-align: left">Thu Jul 03 03:40:09 +0000 2014</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">in_reply_to_status_id_str</td>
+      <td style="text-align: left">Respuesta a</td>
+      <td style="text-align: left">Si es una respuesta, el identificador del tweet al que responde</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">12712712783</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">in_reply_to_user_id_str</td>
+      <td style="text-align: left">Respuesta usuario</td>
+      <td style="text-align: left">Si es una respuesta, el identificador del usuario al que responde</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">88127271</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lang</td>
+      <td style="text-align: left">Idioma</td>
+      <td style="text-align: left">Idioma del tweet (experimental)</td>
+      <td style="text-align: left">Varchar(no limit)</td>
+      <td style="text-align: left">es</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listed_count</td>
+      <td style="text-align: left">Conteo listado</td>
+      <td style="text-align: left">Conteo de personas que han visto el tweet</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">6</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">verified</td>
+      <td style="text-align: left">Verificado</td>
+      <td style="text-align: left">Verdadero si es una cuenta oficial o verificada por twitter</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">FALSE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location</td>
+      <td style="text-align: left">Lugar de usuario</td>
+      <td style="text-align: left">Lugar, puesto por usuario</td>
+      <td style="text-align: left">Varchar(no limit)</td>
+      <td style="text-align: left">USA!</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">user_id_str</td>
+      <td style="text-align: left">Identificador único de usuario</td>
+      <td style="text-align: left">Identificador único de usuario</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">12781902</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">Descripción usuario</td>
+      <td style="text-align: left">Biografía personal de usuario</td>
+      <td style="text-align: left">Varchar(no limit)</td>
+      <td style="text-align: left">Android and apple fan, cool person!!!</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">geo_enabled</td>
+      <td style="text-align: left">Marca geográfica</td>
+      <td style="text-align: left">Verdadero si usuario tiene marca geográfica activada</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">TRUE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">user_created_at</td>
+      <td style="text-align: left">Fecha creada usuario</td>
+      <td style="text-align: left">Fecha de creación de cuenta</td>
+      <td style="text-align: left">Date (Dia Mes DD HH:MM:SS +UTC YYYY)</td>
+      <td style="text-align: left">Tue Nov 20 23:04:41 +0000 2012</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">statuses_count</td>
+      <td style="text-align: left">Conteo status usuario</td>
+      <td style="text-align: left">Conteo de estatus (tweets) del usuario</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">2912</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">followers_count</td>
+      <td style="text-align: left">Seguidores</td>
+      <td style="text-align: left">Conteo de seguidores</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">648</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">favourites_count</td>
+      <td style="text-align: left">Favoritos</td>
+      <td style="text-align: left">Conteo de favoritos del usuario</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">33</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">protected</td>
+      <td style="text-align: left">Protegido</td>
+      <td style="text-align: left">Verdadero si el usuario es privado</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">FALSE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">user_url</td>
+      <td style="text-align: left">URL Descripción</td>
+      <td style="text-align: left">Si la biografía tiene un URL este se describe aquí</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">http://captainluke21.tumblr.com/</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">Nombre usuario</td>
+      <td style="text-align: left">Nombre del usuario (no pseudonimo)</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Yolanda Perez</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">time_zone</td>
+      <td style="text-align: left">Zona horario</td>
+      <td style="text-align: left">Zona de horario</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Mexico City</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">user_lang</td>
+      <td style="text-align: left">Lenguaje usuario</td>
+      <td style="text-align: left">El lenguaje registrado al usuario (el que usa)</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">es</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utc_offset</td>
+      <td style="text-align: left">Diferencia UTC</td>
+      <td style="text-align: left">Diferencia de hora vs. UTC</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">-14000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">following_count</td>
+      <td style="text-align: left">Sigue</td>
+      <td style="text-align: left">Conteo de cuentas que sigue el usuario</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">1829</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">profile_background_color</td>
+      <td style="text-align: left">Color fondo usuario</td>
+      <td style="text-align: left">Color de fondo del usuario</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">FFFFF</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">profile_background_image_url</td>
+      <td style="text-align: left">Foto fondo usuario</td>
+      <td style="text-align: left">URL  a la foto de fondo del usuario</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">http://pbs.twimg.com/profile_background_images/462624672236830721/xuS7Svj-.jpeg</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">profile_background_image_url_https</td>
+      <td style="text-align: left">Foto fondo usuario (seguro)</td>
+      <td style="text-align: left">URL seguro (HTTPS)  a la foto de fondo del usuario</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">https://pbs.twimg.com/profile_background_images/615422205/r48e8x0e2w4pl6vdnh9e.jpeg</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">profile_image_url</td>
+      <td style="text-align: left">Foto usuario</td>
+      <td style="text-align: left">URL  a la foto de perfil del usuario</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">http://pbs.twimg.com/profile_images/483773403770273792/vTmXuxvj_normal.jpeg</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">profile_image_url_https</td>
+      <td style="text-align: left">Foto usuario (seguro)</td>
+      <td style="text-align: left">URL seguro (HTTPS) a la foto de perfil del usuario</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">https://pbs.twimg.com/profile_images/483773403770273792/vTmXuxvj_normal.jpeg</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">profile_banner_url</td>
+      <td style="text-align: left">URL de banner usuario</td>
+      <td style="text-align: left">URL al banner del usuario</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">http://pbs.twimg.com/profile_images/483773403770273792/vTmXuxvj_normal.jpeg</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">following</td>
+      <td style="text-align: left">Siguiendo</td>
+      <td style="text-align: left">Verdadero si el usuario sigue al aplicativo con el que se minó la información</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">FALSE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">follow_request_sent</td>
+      <td style="text-align: left">Enviando pedido de seguir</td>
+      <td style="text-align: left">Verdadero si el usuario ha pedido seguir al aplicativo con el que se minó la información</td>
+      <td style="text-align: left">Binario</td>
+      <td style="text-align: left">FALSE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">notifications</td>
+      <td style="text-align: left">Notificaciones</td>
+      <td style="text-align: left">Cantidad de notificaciones que ha hecho el usuario al aplicativo</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">country_code</td>
+      <td style="text-align: left">Código país</td>
+      <td style="text-align: left">Código de país</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">mx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">country</td>
+      <td style="text-align: left">País</td>
+      <td style="text-align: left">País</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">México</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">place_type</td>
+      <td style="text-align: left">Tipo lugar</td>
+      <td style="text-align: left">Tipo de lugar (ciudad, zona, etc)</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">city</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">full_name</td>
+      <td style="text-align: left">Nombre de lugar</td>
+      <td style="text-align: left">Nombre de lugar</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Mérida, Yucatán</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">place_name</td>
+      <td style="text-align: left">Nombre completo de lugar</td>
+      <td style="text-align: left">Nombre completo de lugar  (más desagregado)</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">Playa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">place_id</td>
+      <td style="text-align: left">Identificador único de lugar</td>
+      <td style="text-align: left">Identificador único de lugar</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">9912812871</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">place_lat</td>
+      <td style="text-align: left">Latitud (de lugar)</td>
+      <td style="text-align: left">Latitud (de lugar)</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">20.94103</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">place_lon</td>
+      <td style="text-align: left">Longitud (de lugar)</td>
+      <td style="text-align: left">Longitud (de lugar)</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">-89.62361</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lat</td>
+      <td style="text-align: left">Latitud (de tweet)</td>
+      <td style="text-align: left">Latitud (de tweet)</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">19.67541</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lon</td>
+      <td style="text-align: left">Longitud (de tweet)</td>
+      <td style="text-align: left">Longitud (de tweet)</td>
+      <td style="text-align: left">Númerico</td>
+      <td style="text-align: left">-98.44927</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">expanded_url</td>
+      <td style="text-align: left">URL expandida</td>
+      <td style="text-align: left">Si el usuario agrega un link al tweet, este es el URL expandido</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">wwww.numbersmart.mx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">url</td>
+      <td style="text-align: left">URL</td>
+      <td style="text-align: left">Si el tweet tiene link, este es el link original</td>
+      <td style="text-align: left">Varchar (no limit)</td>
+      <td style="text-align: left">bit.ly/88dfE</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="mtodo-de-recoleccin">Método de Recolección</h3>
 
-<p>Usando un algóritmo de escáneo en <em>R</em>, de manera diaria, se recolectó información ….. Los paquetes utilizados y los scripts son propiedad exclusiva de <strong>numbersmart</strong>.</p>
+<p>Usando un algóritmo de escáneo en <em>R</em>, se recolectaron tweets (de <strong><em>www.twitter.com</em></strong>) con geotag en la zona norte de México y Sur de Texas.</p>
+
+<p>Incluyen tweets de hashtag “#YaMeCanse” y durante el partido de la copa mundial México vs. Holanda.</p>
+
+<p>Los paquetes utilizados y los scripts son propiedad exclusiva de <strong>numbersmart</strong>.</p>
 
 <h3 id="periodo-y-frecuencia-de-recoleccin">Periodo y Frecuencia de Recolección</h3>
-<p>Desde …. . El calendario de descargas se puede consultar a continuación.</p>
-
-<p><img src="/img/cals/p10_2016.png" alt="Autos 2016" /></p>
+<p>Durante el juego México - Holanda en 3 horas (verano del 2012) y diciembre del mismo año durante duración de “hashtag” mencionado.</p>
 
 <h3 id="validacin-y-limpieza">Validación y limpieza</h3>
 <p>No se realizan cambios significativos a la información.</p>
-
-<h3 id="cobertura">Cobertura</h3>
-
-<p>La cobertura es para el área geográfica…. . La tasa de error de recolección es de ……</p>
 
 <h3 id="financiamiento-y-conflictos-de-inters">Financiamiento y conflictos de interés</h3>
 <p>No existen conflictos de interés en la recolección de la información. El financiamiento fue hecho en su totalidad por <strong>numbersmart</strong>.</p>
