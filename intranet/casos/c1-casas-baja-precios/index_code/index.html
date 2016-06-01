@@ -138,7 +138,8 @@ pordias <span class="o">&lt;-</span> datos_casas <span class="o">%&gt;%</span>
 ggplot<span class="p">(</span><span class="kt">data.frame</span><span class="p">(</span><span class="s">&quot;x&quot;</span> <span class="o">=</span> randomize_data<span class="p">(</span>pordias<span class="o">$</span>Dias<span class="p">)),</span> 
        aes<span class="p">(</span>x <span class="o">=</span> x<span class="p">))</span> <span class="o">+</span> 
     geom_histogram<span class="p">(</span>
-      fill <span class="o">=</span> ns_colors<span class="p">[</span><span class="m">1</span><span class="p">],</span> colour <span class="o">=</span> <span class="s">&quot;white&quot;</span><span class="p">)</span> <span class="o">+</span> 
+      fill <span class="o">=</span> ns_colors<span class="p">[</span><span class="m">1</span><span class="p">],</span> 
+      colour <span class="o">=</span> <span class="s">&quot;white&quot;</span><span class="p">)</span> <span class="o">+</span> 
     theme_ns<span class="p">()</span> <span class="o">+</span> 
     labs<span class="p">(</span>x <span class="o">=</span> <span class="s">&quot;Días&quot;</span><span class="p">,</span> y <span class="o">=</span> <span class="s">&quot;Casas&quot;</span><span class="p">)</span></code></pre></div>
 
